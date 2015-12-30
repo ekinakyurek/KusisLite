@@ -30,6 +30,7 @@
 		C6E528C11BCADF8900F163F1 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E528B71BCADF8900F163F1 /* Roboto-Regular.ttf */; };
 		C6E528C21BCADF8900F163F1 /* termViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E528B81BCADF8900F163F1 /* termViewController.swift */; };
 		C6E528C31BCADF8900F163F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E528B91BCADF8900F163F1 /* ViewController.swift */; };
+		E39958F01C31EC5900FC423B /* programView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39958EF1C31EC5900FC423B /* programView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		C6E528B71BCADF8900F163F1 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		C6E528B81BCADF8900F163F1 /* termViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = termViewController.swift; sourceTree = "<group>"; };
 		C6E528B91BCADF8900F163F1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E39958EF1C31EC5900FC423B /* programView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = programView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				C6E528891BCADEEB00F163F1 /* Assets.xcassets */,
 				C6E5288B1BCADEEB00F163F1 /* LaunchScreen.storyboard */,
 				C6E5288E1BCADEEB00F163F1 /* Info.plist */,
+				E39958EF1C31EC5900FC423B /* programView.swift */,
 			);
 			path = KuGpa;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				C6E528C21BCADF8900F163F1 /* termViewController.swift in Sources */,
 				C6E528BB1BCADF8900F163F1 /* customCell.swift in Sources */,
 				C6E528831BCADEEB00F163F1 /* AppDelegate.swift in Sources */,
+				E39958F01C31EC5900FC423B /* programView.swift in Sources */,
 				C6E528C31BCADF8900F163F1 /* ViewController.swift in Sources */,
 				C6E528BC1BCADF8900F163F1 /* gpaViewController.swift in Sources */,
 			);

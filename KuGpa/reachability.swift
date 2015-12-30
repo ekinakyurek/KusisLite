@@ -20,6 +20,31 @@ struct Courses{
     var valid=1
     var indexInDersler=0
 }
+struct Lecture{
+    var name = ""
+    var location = ""
+    var lecStart = 0.0
+    var lecEnd = 0.0
+    var lecDays = ""
+    var psDays = ""
+    var dsDays = ""
+    var labDays = ""
+    var psStart = 0.0
+    var psEnd =  0.0
+    var psLocation = ""
+    var dsStart = 0.0
+    var dsEnd = 0.0
+    var dsLocation = ""
+    var labStart = 0.0
+    var labEnd = 0.0
+    var labLocation = ""
+    var indexInLectures = 0
+}
+
+var planned = [Lecture]()
+var confirmed = [Lecture]()
+var todays = [Lecture]()
+
 var Dersler = [Courses]()
 
 var terms = [[Courses]]()
@@ -35,8 +60,6 @@ var credit = 0.0
 var creditholder2 = 0.0
 
 //Colors
-
-
 
 let greenButtonColor = UIColor(netHex: 0x4DC4AA)
 
@@ -103,9 +126,7 @@ public class Reachability {
                 }
             }
         }
-        for thing in terms{
-            print(thing[0].term)
-        }
+        
 
         
     }
@@ -132,10 +153,27 @@ public class Reachability {
         
     }
     
+    class func PreparePlannedProgramRequest()  -> NSMutableURLRequest {
+        let program = "https://kusis.ku.edu.tr/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL?Page=SSR_APT_SCHD_BLDR&Action=A&EMPLID=0031459&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524"
+        let newrequest = NSMutableURLRequest(URL: NSURL(string:program)!)
+        newrequest.HTTPMethod = "GET"
+        return newrequest
+        
+    }
+
+    class func PrepareConfirmedProgramRequest()  -> NSMutableURLRequest {
+        let program = "https://kusis.ku.edu.tr/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_SS_MY_CLASSES.GBL?Page=SSR_SS_MY_CLASSES&Action=U&ExactKeys=Y&EMPLID=0031459&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524&TargetFrameName="
+        let newrequest = NSMutableURLRequest(URL: NSURL(string:program)!)
+        newrequest.HTTPMethod = "GET"
+        return newrequest
+        
+    }
+    
+    
     class func ReadHtmlData(data : NSData){
         
                
-}
+    }
 
     class func TermSorter(){
         var newterm = [Courses]()
@@ -182,6 +220,128 @@ public class Reachability {
             }
        
         
+    }
+    
+    class func dataParsingForProgram(data : NSData, plannedOrconfirmed: Bool ){
+        
+        var listOfProgram = [Lecture]()
+        
+        let html = NSString(data: data, encoding: NSUTF8StringEncoding)
+        
+        let doc = NDHpple(HTMLData: html! as String)
+        
+        var i: Bool = true
+        var s: Int = 0
+        var lec: Int = 0
+        var classType = ""
+        
+        while(i) {
+            
+            i=false;
+            
+            for node in doc.searchWithXPathQuery("//a[@id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$\(s)']")! {
+                
+                if node.text != "" {
+                    i=true;
+                    classType = node.text!
+                    let firstChar = classType.substringToIndex(classType.startIndex.advancedBy(1))
+                    
+                    if firstChar ==  "1"{
+                       classType =  "Lec"
+                        for node in doc.searchWithXPathQuery("//a[@id='SSR_APT_CARTWK2_DESCR50$\(lec)']")! {
+                         
+                          if node.text != "" {
+                            let name = node.text!
+                            
+                            var lecture = Lecture()
+                            lecture.name = name.substringToIndex(name.startIndex.advancedBy(8))
+                            listOfProgram.append(lecture)
+                      
+                            }
+                        }
+                        lec++
+                        
+                    }else if firstChar ==  "P"  {
+                       classType =  "PS"
+                    }else if firstChar ==  "D" {
+                        classType =  "DS"
+                    }else if firstChar ==  "L" {
+                        classType =  "LAB"
+                    }else{
+                        
+                    }
+                }
+            }
+        
+        
+            for node in doc.searchWithXPathQuery("//span[@id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$\(s)']")! {
+               
+                if node.text != "" {
+                    i=true;
+                    var classname = node.children![2].content
+                    let dateInfo = node.text!
+                    var start = 0.0
+                    var end = 0.0
+                    let doubleDot : Character = ":"
+                    let bosluk : Character = " "
+                    var days = ""
+                    classname = classname?.substringFromIndex(classname!.startIndex.advancedBy(1))
+                    days = dateInfo.substringToIndex((dateInfo.characters.indexOf(bosluk))!)
+                    let index1 = dateInfo.characters.indexOf(doubleDot)!
+                    let index2 = dateInfo.substringFromIndex(index1.advancedBy(1)).characters.indexOf(doubleDot)!
+                    
+                    start = Double(dateInfo.substringWithRange(Range<String.Index>(start: index1.advancedBy(-2), end: index1)) + "." + dateInfo.substringWithRange(Range<String.Index>(start: index1.advancedBy(1), end: index1.advancedBy(3) )))!
+                    
+                    let secondPart = dateInfo.substringFromIndex(index1.advancedBy(1));
+                    
+                    end = Double(secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(-2), end: index2)) + "." + secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(1), end: index2.advancedBy(3) )))!
+                    
+                    if classType ==  "Lec"{
+                        
+                        listOfProgram[lec-1].lecStart = start
+                        listOfProgram[lec-1].lecEnd = end
+                        listOfProgram[lec-1].location = classname!
+                        listOfProgram[lec-1].lecDays = days
+                        
+                    }else if classType ==  "PS"  {
+                        listOfProgram[lec-1].psStart = start
+                        listOfProgram[lec-1].psEnd = end
+                        listOfProgram[lec-1].psLocation = classname!
+                        listOfProgram[lec-1].psDays = days
+                        
+                    }else if classType ==  "DS" {
+                        listOfProgram[lec-1].dsStart = start
+                        listOfProgram[lec-1].dsEnd = end
+                        listOfProgram[lec-1].dsLocation = classname!
+                         listOfProgram[lec-1].dsDays = days
+                    
+                    }else if classType ==  "LAB" {
+                        listOfProgram[lec-1].labStart = start
+                        listOfProgram[lec-1].labEnd = end
+                        listOfProgram[lec-1].labLocation = classname!
+                         listOfProgram[lec-1].labDays = days
+                    }else {
+                        
+                    }
+                }
+               
+            }
+                
+            s++
+        }
+        
+        if(plannedOrconfirmed){
+            planned = listOfProgram
+        }else{
+            confirmed = listOfProgram
+        }
+    }
+    
+    class func printPlanned(){
+        
+        for thing in planned {
+            print(thing.name)
+        }
     }
     
     class func dataParsing(data : NSData){
@@ -325,7 +485,7 @@ public class Reachability {
                     
                     var newcourse = Courses()
                     newcourse.name = (dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("name"))! as! String
-                    print(newcourse.name)
+                    
                     newcourse.grade = (dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("grade"))! as! String
                     newcourse.term = (dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("term"))! as! String
                     newcourse.point = Double((dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("point"))! as! String)!
@@ -408,8 +568,7 @@ public class Reachability {
                     case "ASIU","SOSC","ETHR","HUMS":
                         if Dersler[i].point > Dersler[j].point{
                             Dersler[j].units = 0.0
-                            print("burda")
-                            print(Dersler[j].units)
+                            
                         }
                         
                         if Dersler[i].point < Dersler[j].point{
@@ -490,7 +649,7 @@ public class Reachability {
         Json.removeAtIndex(Json.endIndex.predecessor())
         
         Json = Json + "}"
-        print(Json)
+    
         return Json
         
     }

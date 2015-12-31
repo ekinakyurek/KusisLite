@@ -12,18 +12,27 @@ import Foundation
 var program = [[String]]()
 var LectureViews = [[UILabel]]()
 var updated = false;
+var isPlanned = true;
 class programView: UIViewController{
-   
+
+   var ActivityIndicator = UIActivityIndicatorView()
+
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
+        
+        ActivityIndicator.startAnimating()
+   
         let value = UIInterfaceOrientation.LandscapeLeft.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
-       
+        
         createMyTable();
         
-        if(!updated){
+        if(!updated && isPlanned){
         getPlannedProgram();
+        }else if(!updated && !isPlanned){
+        getConfirmedProgram()
         }
         
         // Do any additional setup after loading the view.
@@ -31,6 +40,7 @@ class programView: UIViewController{
     
     
     func createMyTable(){
+        
         var cells = [[ CGRect ]]()
         let size = get_visible_size()
         
@@ -41,7 +51,12 @@ class programView: UIViewController{
         let statusHeight = min(statusBar.width, statusBar.height)
         
         cells.append(Array(count:8, repeatedValue:CGRect()))
+        
         LectureViews.append(Array(count:8, repeatedValue:UILabel()))
+        
+        cells[0][0] = CGRectMake(0,statusHeight,columnStep,rowStep);
+      
+
         
         for time in 1...7 {
             cells[0][time] = CGRectMake(CGFloat(time)*columnStep,statusHeight,columnStep,rowStep);
@@ -76,7 +91,10 @@ class programView: UIViewController{
                 label.textColor = UIColor.blackColor()
                 label.font = UIFont(name: "Roboto-Light", size: 12)
                 LectureViews[i][j] = label
+               
                 self.view.addSubview( LectureViews[i][j] )
+               
+                
                 
             }
         }
@@ -96,7 +114,7 @@ class programView: UIViewController{
               default: Sday = ""
             
             }
-            label.font = UIFont(name: "Roboto-Regular", size: 15)
+            label.font = UIFont(name: "Roboto-Regular", size: 14)
             label.text = Sday
             label.textColor = UIColor.whiteColor()
         
@@ -104,16 +122,53 @@ class programView: UIViewController{
             self.view.addSubview(LectureViews[day][0])
         }
         
-        cells[0][0] = CGRectMake(0,statusHeight,columnStep,rowStep);
       
+        
         let label = UILabel(frame: cells[0][0]);
-        label.textAlignment = NSTextAlignment.Center;
+        label.textAlignment = NSTextAlignment.Center
+        if isPlanned {
         label.backgroundColor = navigationControllerColor
-        label.text = "Enrollments"
+        }else{
+        label.backgroundColor = UIColor.grayColor()
+ 
+        }
+      
         label.textColor = UIColor.whiteColor()
-        label.font = UIFont(name: "Roboto-Regular", size: 15)
+        label.font = UIFont(name: "Roboto-Regular", size: 14)
+        let tap = UITapGestureRecognizer(target: self, action: Selector("myMethodToHandleTap:"))
+        tap.numberOfTapsRequired = 1
         LectureViews[0][0] = label;
-        self.view.addSubview(LectureViews[0][0] )
+        ActivityIndicator.center = CGPoint(x: columnStep/2, y: rowStep/2)
+        LectureViews[0][0].addSubview(ActivityIndicator)
+   
+       
+       
+    
+        LectureViews[0][0].userInteractionEnabled = true
+        LectureViews[0][0].addGestureRecognizer(tap)
+        self.view.addSubview(LectureViews[0][0])
+      
+       
+        
+    }
+    
+    func myMethodToHandleTap(sender: UITapGestureRecognizer) {
+        
+        ActivityIndicator.startAnimating()
+        LectureViews[0][0].text = ""
+        
+        if sender.view?.backgroundColor == navigationControllerColor {
+            getConfirmedProgram()
+            sender.view?.backgroundColor = UIColor.grayColor()
+            isPlanned = false;
+        }else{
+            getPlannedProgram()
+            sender.view?.backgroundColor = navigationControllerColor
+            isPlanned = true;
+           
+        }
+       
+       
         
     }
     
@@ -158,6 +213,7 @@ class programView: UIViewController{
     func getPlannedProgram()
         
     {
+        
         if Reachability.isConnectedToNetwork(){
             
             let request = Reachability.PrepareLoginRequest()
@@ -176,7 +232,12 @@ class programView: UIViewController{
                             
                             Reachability.dataParsingForProgram(data!,plannedOrconfirmed: true)
                             
+                           
+                            
+                           
                             self.putCoursesToTable(planned)
+                            LectureViews[0][0].text = "Planned E."
+                            self.ActivityIndicator.stopAnimating()
                             
                         })
                     }
@@ -194,6 +255,7 @@ class programView: UIViewController{
     func getConfirmedProgram()
         
     {
+        
         if Reachability.isConnectedToNetwork(){
             
             let request = Reachability.PrepareLoginRequest()
@@ -212,7 +274,16 @@ class programView: UIViewController{
                             
                             Reachability.dataParsingForProgram(data!,plannedOrconfirmed: false)
                             
+                            
+                            
+                           
                             self.putCoursesToTable(confirmed)
+                            LectureViews[0][0].text = "Confirmed E."
+                            
+                            self.ActivityIndicator.stopAnimating()
+                            
+                          
+                        
                             
                         })
                     }
@@ -230,7 +301,14 @@ class programView: UIViewController{
     
     func putCoursesToTable(listOfProgram: [Lecture]){
         
-        for lecture in planned{
+        for lectures in LectureViews {
+            for lecture in lectures {
+                lecture.text = ""
+            }
+            
+        }
+        
+        for lecture in listOfProgram {
             var index = [0,0,0,0]
             
             if(lecture.lecStart != 0.0 ){
@@ -376,3 +454,4 @@ class programView: UIViewController{
     
     
 }
+

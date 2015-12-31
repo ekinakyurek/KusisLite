@@ -333,6 +333,7 @@ public class Reachability {
         if(plannedOrconfirmed){
             planned = listOfProgram
         }else{
+            print("Regular")
             confirmed = listOfProgram
         }
     }

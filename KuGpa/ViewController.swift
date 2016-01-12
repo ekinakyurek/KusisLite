@@ -11,8 +11,9 @@ import UIKit
 var name = "" as NSString
 var pass = "" as NSString
 
-class ViewController: UIViewController,UITextFieldDelegate {
-
+class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDelegate{
+   
+    
     @IBOutlet var click: UIButton!
     @IBOutlet var activityInd: UIActivityIndicatorView!
 
@@ -113,6 +114,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
     
     override func viewDidLoad() {
+        self.tabBarController?.tabBar.hidden = true
         self.view.hidden = false
         super.viewDidLoad()
         //if NSUserDefaults.standardUserDefaults().objectForKey("storage") == nil {

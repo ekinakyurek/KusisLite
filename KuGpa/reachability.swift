@@ -63,9 +63,11 @@ var creditholder2 = 0.0
 
 let greenButtonColor = UIColor(netHex: 0x4DC4AA)
 
-let mainStoryBoardColor = UIColor(netHex: 0x2B2B2B)
+let mainStoryBoardColo = UIColor(netHex: 0x2B2B2B)
 
-var navigationControllerColor = greenButtonColor
+let mainStoryBoardColor = UIColor(netHex: 0x2c3e50)
+
+var navigationControllerColor = mainStoryBoardColor
 
 var firstCellColor = UIColor(netHex: 0xECEFF1);
 
@@ -242,17 +244,18 @@ public class Reachability {
             for node in doc.searchWithXPathQuery("//a[@id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$\(s)']")! {
                 
                 if node.text != "" {
+                    
                     i=true;
                     classType = node.text!
                     let firstChar = classType.substringToIndex(classType.startIndex.advancedBy(1))
-                    
-                    if firstChar ==  "1"{
+                  
+                    if firstChar.characters.first >= "0" && firstChar.characters.first  <= "9" {
                        classType =  "Lec"
                         for node in doc.searchWithXPathQuery("//a[@id='SSR_APT_CARTWK2_DESCR50$\(lec)']")! {
                          
                           if node.text != "" {
                             let name = node.text!
-                            
+                          
                             var lecture = Lecture()
                             lecture.name = name.substringToIndex(name.startIndex.advancedBy(8))
                             listOfProgram.append(lecture)
@@ -279,6 +282,7 @@ public class Reachability {
                 if node.text != "" {
                     i=true;
                     var classname = node.children![2].content
+                   
                     let dateInfo = node.text!
                     var start = 0.0
                     var end = 0.0
@@ -296,6 +300,11 @@ public class Reachability {
                     
                     end = Double(secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(-2), end: index2)) + "." + secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(1), end: index2.advancedBy(3) )))!
                     
+                    if classname!.characters.indexOf(  "-" ) != nil
+                    {
+                    classname = classname?.substringToIndex(classname!.characters.indexOf(  "-" )!)
+                    }
+                  
                     if classType ==  "Lec"{
                         
                         listOfProgram[lec-1].lecStart = start

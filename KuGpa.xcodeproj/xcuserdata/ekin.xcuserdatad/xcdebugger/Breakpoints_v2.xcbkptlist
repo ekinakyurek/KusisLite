@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/programView.swift"
-            timestampString = "473216323.170515"
+            timestampString = "474234991.268532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "createMyTable()"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "createMyTablePortrait()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/programView.swift"
-            timestampString = "473216323.170515"
+            timestampString = "474234991.268532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "createMyTable()"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
+            landmarkName = "createMyTablePortrait()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/programView.swift"
-            timestampString = "473216970.823002"
+            timestampString = "474234991.268532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
             landmarkName = "getPlannedProgram()"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/reachability.swift"
-            timestampString = "473126069.414983"
+            timestampString = "474131695.228115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "dataParsingForProgram(_:plannedOrconfirmed:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/reachability.swift"
-            timestampString = "473126069.414983"
+            timestampString = "474127388.005191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "dataParsingForProgram(_:plannedOrconfirmed:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/programView.swift"
-            timestampString = "473217095.479988"
+            timestampString = "474234991.268532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
-            landmarkName = "putCoursesToTable(_:)"
+            startingLineNumber = "681"
+            endingLineNumber = "681"
+            landmarkName = "dateToIndex(_:end:days:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,13 +106,202 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/programView.swift"
-            timestampString = "473217095.479988"
+            timestampString = "474234991.268532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "675"
+            endingLineNumber = "675"
             landmarkName = "putCoursesToTable(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KuGpa/ViewController.swift"
+            timestampString = "474220268.349953"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "textFieldShouldReturn(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KuGpa.ViewController.usd.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "KuGpa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekin/git/KusisLite/KuGpa/ViewController.swift"
+                  timestampString = "474061453.535719"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KuGpa.ViewController.usd.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "KuGpa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekin/git/KusisLite/KuGpa/ViewController.swift"
+                  timestampString = "474061453.535894"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KuGpa.ViewController.init (KuGpa.ViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; KuGpa.ViewController"
+                  moduleName = "KuGpa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekin/git/KusisLite/KuGpa/ViewController.swift"
+                  timestampString = "474061453.535996"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "115">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KuGpa.ViewController.init (KuGpa.ViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;KuGpa.ViewController&gt;"
+                  moduleName = "KuGpa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekin/git/KusisLite/KuGpa/ViewController.swift"
+                  timestampString = "474061453.53609"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "74">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KuGpa/programView.swift"
+            timestampString = "474234991.268532"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "710"
+            endingLineNumber = "710"
+            landmarkName = "dateToIndex(_:end:days:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KuGpa/reachability.swift"
+            timestampString = "474131695.228115"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
+            landmarkName = "dataParsingForProgram(_:plannedOrconfirmed:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KuGpa/programView.swift"
+            timestampString = "474234991.268532"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "createMyTablePortrait()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KuGpa/ViewController.swift"
+            timestampString = "474219532.93634"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KuGpa.ViewController.__deallocating_deinit"
+                  moduleName = "KuGpa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekin/git/KusisLite/KuGpa/ViewController.swift"
+                  timestampString = "474219532.960808"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KuGpa.ViewController.init (KuGpa.ViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; KuGpa.ViewController"
+                  moduleName = "KuGpa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekin/git/KusisLite/KuGpa/ViewController.swift"
+                  timestampString = "474219532.961216"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KuGpa.ViewController.init (KuGpa.ViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;KuGpa.ViewController&gt;"
+                  moduleName = "KuGpa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekin/git/KusisLite/KuGpa/ViewController.swift"
+                  timestampString = "474219532.961482"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

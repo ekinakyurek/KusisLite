@@ -28,8 +28,8 @@ extension UIColor {
     }
 }
 
-class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
+class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate{
+ 
     
     func updateStorage(){
         storage = Reachability.ToJson()
@@ -55,6 +55,7 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.delegate = self
 
         if NSUserDefaults.standardUserDefaults().objectForKey("storage") != nil {
             
@@ -94,6 +95,19 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
       
         // Do any additional setup after loading the view.
+    }
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        
+        
+        if viewController.title == "enrollments" && !UIDevice.currentDevice().orientation.isLandscape.boolValue  {
+        
+        let value = UIInterfaceOrientation.LandscapeRight.rawValue
+        
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+      
+        }
+       
     }
     
     func refresh(sender:AnyObject)
@@ -162,7 +176,7 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Dispose of any resources that can be recreated.
     }
 
-    
+  
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return terms.count+1

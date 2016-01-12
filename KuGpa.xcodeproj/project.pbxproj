@@ -30,6 +30,7 @@
 		C6E528C11BCADF8900F163F1 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E528B71BCADF8900F163F1 /* Roboto-Regular.ttf */; };
 		C6E528C21BCADF8900F163F1 /* termViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E528B81BCADF8900F163F1 /* termViewController.swift */; };
 		C6E528C31BCADF8900F163F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E528B91BCADF8900F163F1 /* ViewController.swift */; };
+		E3237A411C419C48003C0FB7 /* pelin in Resources */ = {isa = PBXBuildFile; fileRef = E3237A401C419C48003C0FB7 /* pelin */; };
 		E39958F01C31EC5900FC423B /* programView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39958EF1C31EC5900FC423B /* programView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		C6E528B71BCADF8900F163F1 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		C6E528B81BCADF8900F163F1 /* termViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = termViewController.swift; sourceTree = "<group>"; };
 		C6E528B91BCADF8900F163F1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E3237A401C419C48003C0FB7 /* pelin */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pelin; sourceTree = "<group>"; };
 		E39958EF1C31EC5900FC423B /* programView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = programView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 		C6E528811BCADEEB00F163F1 /* KuGpa */ = {
 			isa = PBXGroup;
 			children = (
+				E3237A401C419C48003C0FB7 /* pelin */,
 				C6DA82341BF2B71A00D74ABE /* NDHpple */,
 				C69874461BEF935E00A72394 /* KuGpa-Bridging-Header.h */,
 				C698743E1BEF8C2D00A72394 /* NDHppleElement.swift */,
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E528C11BCADF8900F163F1 /* Roboto-Regular.ttf in Resources */,
+				E3237A411C419C48003C0FB7 /* pelin in Resources */,
 				C6E5288D1BCADEEB00F163F1 /* LaunchScreen.storyboard in Resources */,
 				C6E528C01BCADF8900F163F1 /* Roboto-Medium.ttf in Resources */,
 				C6DA82351BF2B71A00D74ABE /* NDHpple in Resources */,
@@ -446,14 +450,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = KuGpa/KuGpa.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Kagan Cenan (573682DC5D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kagan Cenan (573682DC5D)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KuGpa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mellonapp.KuGpa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc38ed79-ef98-4ecf-93f0-baa9dffd4a49";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KuGpa/NDHpple/KuGpa-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -582,14 +586,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = KuGpa/KuGpa.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Kagan Cenan (573682DC5D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kagan Cenan (573682DC5D)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KuGpa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mellonapp.KuGpa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc38ed79-ef98-4ecf-93f0-baa9dffd4a49";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KuGpa/NDHpple/KuGpa-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -601,14 +605,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = KuGpa/KuGpa.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Kagan Cenan (573682DC5D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kagan Cenan (573682DC5D)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KuGpa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mellonapp.KuGpa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc38ed79-ef98-4ecf-93f0-baa9dffd4a49";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KuGpa/NDHpple/KuGpa-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

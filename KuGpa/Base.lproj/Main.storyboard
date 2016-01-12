@@ -189,11 +189,11 @@
             </objects>
             <point key="canvasLocation" x="1964" y="31"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Acedemic Record-->
         <scene sceneID="QAd-f3-8QH">
             <objects>
                 <navigationController hidesBarsOnSwipe="YES" id="IlN-dH-3Wf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="egU-sB-ixx"/>
+                    <tabBarItem key="tabBarItem" title="Acedemic Record" image="filing-7" id="egU-sB-ixx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wdt-kU-iH4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -215,27 +215,27 @@
             </objects>
             <point key="canvasLocation" x="1435.5" y="-42.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--enrollments-->
         <scene sceneID="zf8-9z-b5w">
             <objects>
-                <navigationController id="fc6-rh-bEh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="aUc-pW-ruc"/>
+                <navigationController title="enrollments" id="fc6-rh-bEh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Enrollments" image="clock-7.png" id="aUc-pW-ruc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EBg-Hp-aRQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="4SS-7k-8wq" kind="relationship" relationship="rootViewController" id="sxU-ti-pUm"/>
+                        <segue destination="4SS-7k-8wq" kind="relationship" relationship="rootViewController" id="Yb0-ER-S8W"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYF-kI-6mZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="741.5" y="966.5"/>
         </scene>
-        <!--Program View-->
+        <!--programView-->
         <scene sceneID="jeo-ci-3HV">
             <objects>
-                <viewController id="4SS-7k-8wq" customClass="programView" customModule="KuGpa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="programView" id="4SS-7k-8wq" customClass="programView" customModule="KuGpa" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jVF-19-R88"/>
                         <viewControllerLayoutGuide type="bottom" id="BRL-d0-krS"/>
@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8a-e1-JQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222.5" y="966.5"/>
+            <point key="canvasLocation" x="1218.5" y="966.5"/>
         </scene>
         <!--Semesters-->
         <scene sceneID="oJ1-kB-cKY">
@@ -395,6 +395,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clock-7.png" width="30" height="30"/>
+        <image name="filing-7" width="30" height="30"/>
         <image name="ku_logo (1).png" width="292" height="57"/>
     </resources>
 </document>

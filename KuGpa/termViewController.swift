@@ -9,13 +9,15 @@ import UIKit
 
 var unit = 0.0
 
-class termViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class termViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate{
     
 @IBOutlet weak var tableView: UITableView!
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBarController?.delegate = self
         
         let titleLabel : UILabel = UILabel(frame: CGRectMake(0,0,100,32))
         titleLabel.text = terms[indexofTerm][0].term
@@ -47,6 +49,19 @@ class termViewController: UIViewController, UITableViewDelegate, UITableViewData
         return terms[indexofTerm].count+1
     }
     
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        
+     
+        if viewController.title == "enrollments" && !UIDevice.currentDevice().orientation.isLandscape.boolValue  {
+            
+            let value = UIInterfaceOrientation.LandscapeRight.rawValue
+            
+            UIDevice.currentDevice().setValue(value, forKey: "orientation")
+            
+        }
+        
+    }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        
         var cell: customCell

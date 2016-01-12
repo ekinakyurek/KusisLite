@@ -1,0 +1,2236 @@
+<html dir='ltr' lang='en'>
+<!-- Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved. -->
+<!-- SAFARI/601.3/MAC; ToolsRel=8.53.08; User=PPULCU13; DB=KUPROD/ORACLE; AppServ=//kupa20.ku.edu.tr:9000; -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script language='JavaScript'>
+var  totalTimeoutMilliseconds = 1200000; 
+var  warningTimeoutMilliseconds = 900000; 
+var timeOutURL = 'https://kusis.ku.edu.tr/psp/ps/EMPLOYEE/HRMS/?cmd=expire';
+var timeoutWarningPageURL = 'https://kusis.ku.edu.tr/psc/ps/EMPLOYEE/HRMS/s/WEBLIB_TIMEOUT.PT_TIMEOUTWARNING.FieldFormula.IScript_TIMEOUTWARNING';
+</script> 
+
+<link id=PSSTYLEREQ_6_css rel='stylesheet' type='text/css' href='/cs/ps/cache/css/PSSTYLEREQ_6.css' />
+<link id=SSS_STYLESHEET_4_css rel='stylesheet' type='text/css' href='/cs/ps/cache/css/SSS_STYLESHEET_4.css' />
+<title id='PSPAGETITLE'>APT Schedule Builder</title>
+<script language='JavaScript'>
+var winParent = null;
+var modalID = null;
+var modalZoomName = null;
+var baseKey_win0 = "\x1b";
+var altKey_win0 = "05678\xbc\xbe\xbf\xde";
+var ctrlKey_win0 = "JK";
+var saveWarningKeys_win0 = "";
+var bAccessibility_win0 =false;
+var bDoModal_win0 = false;
+var bPromptPage_win0 = false;
+var bTabOverTB_win0 = false;
+var bTabOverPg_win0 = false;
+var bTabOverNonPS_win0 = false;
+var PIA_KEYSTRUCT={EMPLID:"0031646",INSTITUTION:"KOCUN",SSR_APT_INSTANCE:"1",SSR_ITEM_ID:"00000004524"};
+var strCurrUrl='https://kusis.ku.edu.tr/psp/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL?EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524&PAGE=SSR_APT_SCHD_BLDR';
+var bIncInNavigation='T';
+var szCrefID='HC_SSR_APT_SCHD_BLDR_GBL';
+var szCrefReged='T';
+var szCrefVisible='T';
+var szCrefLabel='My Planned Enrollments';
+var szCalendarType = 'G';
+var bMenuSrchPage = false;
+var bWSRP=0;var szMenuSrchText = "-999999-";
+var modalCloseUrl = '/cs/ps/cache/image/PT_PORTAL_IC_CLOSE_1.gif';
+var modalCloseAlt = 'Close';
+var modalResizeUrl= '/cs/ps/cache/image/PT_RESIZE_IMG_1.gif';
+var modalResizeAlt = 'Drag to resize';
+var modalMoveAlt = 'Drag to move';
+</script>
+<script language='JavaScript'>
+var PFieldList_win0 = [['SSR_AIR_HDR_DESCR50$29$',1]];
+</script>
+<script language='JavaScript'>
+var EFieldList_win0 = [];
+</script>
+<script LANGUAGE='JavaScript'>
+try {
+document.domain = "ku.edu.tr";
+}
+catch(err) {;}
+</script>
+<script language='JavaScript' type='text/javascript' src='/cs/ps/cache/js/PT_COMMON_MIN_47000.js'>
+</script>
+<script language='JavaScript' type='text/javascript' src='/cs/ps/cache/js/PT_AJAX_NET_MIN_47000.js'>
+</script>
+<script language='JavaScript' type='text/javascript' src='/cs/ps/cache/js/PT_SAVEWARNINGSCRIPT_MIN_1.js'>
+</script>
+<script language='JavaScript' type='text/javascript' src='/cs/ps/cache/js/PT_PAGESCRIPT_win0_MIN_47000.js'>
+</script>
+<script language='JavaScript' type='text/javascript' src='/cs/ps/cache/js/PT_EDITSCRIPT_win0_MIN_1.js'>
+</script>
+<script language='JavaScript' type='text/javascript' src='/cs/ps/cache/js/PT_POPUPSCRIPT_win0_MIN_47000.js'>
+</script>
+<script language='JavaScript' type='text/javascript' src='/cs/ps/cache/js/PT_GRIDSCRIPT_win0_MIN_47000.js'>
+</script>
+<script language='JavaScript' type='text/javascript' src='/cs/ps/cache/js/PT_TYPEAHEAD_win0_MIN_47000.js'>
+</script>
+<script language='JavaScript'>
+var nResubmit=0;
+var nLastAction=0;
+var loader=null;
+if (typeof(bCleanHtml) == 'undefined')
+	var bCleanHtml = false;
+setupTimeout2();
+var postUrl_win0='https://kusis.ku.edu.tr/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL';
+function aAction_win0(form, name, params, bAjax, bPrompt)
+{
+setupTimeout2();
+if ((name != '#ICSave'))
+processing_win0(1,3000);
+aAction0_win0(form, name, params, bAjax, bPrompt);
+}
+function submitAction_win0(form, name)
+{
+setupTimeout2();
+if (!ptCommonObj2.isICQryDownload(form, name))
+ { processing_win0(1,3000); }
+preSubmitProcess_win0(form, name);
+var spellcheckpos = name.indexOf('$spellcheck');
+if ((spellcheckpos != -1) && (name.indexOf('#KEYA5') != -1))
+	form.ICAction.value = name.substring(0,spellcheckpos);
+else 
+	form.ICAction.value=name;
+var actionName = form.ICAction.value;
+form.ICXPos.value=ptCommonObj2.getScrollX();
+form.ICYPos.value=ptCommonObj2.getScrollY();
+if (!ptCommonObj2.isAJAXReq(form, name) && !ptCommonObj2.isPromptReq(name)){
+if (nLastAction == 1 && nResubmit > 0) return;
+form.ICResubmit.value=nResubmit;
+form.submit();
+if (!ptCommonObj2.isICQryDownload(form, name))
+	nResubmit++;
+}
+else if (ptCommonObj2.isPromptReq(name))
+	pAction_win0(form, name, arguments[2]);
+else
+	aAction_win0(form, actionName);}
+</script>
+<script language='javascript'>
+var pt_calHeadstyle=" class='PTCALHEAD' "
+var pt_calWeekHeadstyle=" class='PTCALWEEKHEAD' "
+function dateitemrefs()
+{
+this.pt_dateheader = "/cs/ps/cache/image/PT_PORTAL_IC_CLOSE_1.gif";
+this.pt_datering = "/cs/ps/cache/image/PT_CURRENT_DATE_1.gif";
+this.pt_datesel = "/cs/ps/cache/image/PT_SELECTED_DATE_1.gif";
+this.pt_nextmonth = "/cs/ps/cache/image/PT_RIGHT_SCROLL_1.gif";
+this.pt_prevmonth= "/cs/ps/cache/image/PT_LEFT_SCROLL_1.gif";
+this.pt_daystitle_hijri = "/cs/ps/cache/image/PT_DATE_TITLE_S6_1.gif";
+this.pt_daystitle_thai = "/cs/ps/cache/image/PT_DATE_TITLE_S0_1.gif";
+this.pt_daystitle_s0 = "/cs/ps/cache/image/PT_DATE_TITLE_S0_1.gif";
+this.pt_daystitle_m1 = "/cs/ps/cache/image/PT_DATE_TITLE_M1_1.gif";
+this.pt_daystitle_t2 = "/cs/ps/cache/image/PT_DATE_TITLE_T2_1.gif";
+this.pt_daystitle_w3 = "/cs/ps/cache/image/PT_DATE_TITLE_W3_1.gif";
+this.pt_daystitle_t4 = "/cs/ps/cache/image/PT_DATE_TITLE_T4_1.gif";
+this.pt_daystitle_f5 = "/cs/ps/cache/image/PT_DATE_TITLE_F5_1.gif";
+this.pt_daystitle_s6 = "/cs/ps/cache/image/PT_DATE_TITLE_S6_1.gif";
+}
+ 
+function LoadCalendar()
+{
+var dateitems = new dateitemrefs();
+loadImages(dateitems);
+}
+function DatePrompt_win0(dtfield,promptfield,yrfmt,bsubmit)
+{
+setupTimeout2();
+openDate_win0(dtfield, promptfield, "DMY/"+yrfmt,bsubmit,"G",1);
+}
+</script>
+<script language='JavaScript'  ptdefer='defer'>
+if (typeof ptStyleSheet == "undefined") {
+ptStyleSheet = 'SSS_STYLESHEET';
+}
+function onLoadExt_win0() {
+modalZoomName = null;
+var oWin=window;
+var oDoc=document;
+ptTAObj_win0.init(oWin,oDoc,oDoc.win0,'/cs/ps/cache/image/PT_SRT2UP_SEL_1.gif','/cs/ps/cache/image/PT_SRT2DN_SEL_1.gif','/cs/ps/cache/image/PT_PORTAL_IC_CLOSE_1.gif',500);
+var pt_pageinfo = document.getElementById('pt_pageinfo_win0');
+if (pt_pageinfo) {
+pt_pageinfo.setAttribute('Page', 'SSR_APT_SCHD_BLDR');
+pt_pageinfo.setAttribute('Component', 'SSR_APT_SCHD_BLDR');
+pt_pageinfo.setAttribute('Menu', 'SSR_PROG_ENRL_SS');
+}
+
+ g_bAccessibilityMode=false; 
+UpdateBreadCrumbs();
+runOnloadScript_win0(false,false,false,false,false,false,false,false,true,false,false,false,false,true,false,2,'ICFocus',false,false);
+HelppopupObj_win0.StopPopup();
+
+doModalOnLoad_win0(false, false);
+ResetGlyph_win0();
+self.scroll(0,0);
+objToBeFocus = null;
+if (typeof oWin == 'undefined') setEventHandlers_win0('ICFirstAnchor_win0', 'ICLastAnchor_win0', false);
+ else
+ oWin.setEventHandlers_win0('ICFirstAnchor_win0', 'ICLastAnchor_win0', false);
+setFocus_win0('DERIVED_SSTSNAV_SSTS_NAV_TABS',-1);
+processing_win0(0,3000);
+ptConsole2.enable();
+
+GenerateABN();
+GenerateFakeBC();
+bcUpdateForPTF();if (typeof(myAppsWindowOpenJS) != 'undefined' && myAppsWindowOpenJS != null && myAppsWindowOpenJS != '')
+ {
+try {eval(myAppsWindowOpenJS);} catch(e) {}
+  myAppsWindowOpenJS=null;
+}
+ResetGlyph_win0();setPageletInfoInCtxmenu_win0('false');}
+try{ptEvent.load(onLoadExt_win0);}catch(e){}
+</script></head>
+<body tabindex='-1'  class='PSPAGE' >
+<DIV id='pt_pageinfo_win0' Page='' Component='' Menu=''></DIV>
+<div id='pt_modalMaskCover'>&nbsp;</div><div id='pt_modalMask'>&nbsp;</div><div id='pt_console'></div><div id='pt_typeahead0'><span id='pt_typeahead' class='spanTextDropdown'>&nbsp;</span></div><div id='WAIT_win0' style='display:none;position:absolute;right:0;'><img id='processing' align='left' src='/cs/ps/cache/image/PT_PROCESSING_1.gif' alt='Processing... please wait' title='Processing... please wait' /></div>
+ <div id='SAVED_win0' style='display:none;position:absolute;right:0;'><table border='0' cellpadding='0' cellspacing='0'><tr><td><img src='/cs/ps/cache/image/PTPORTAL_POPBOX_LEFT_1.gif' width='7' height='39' border='0' alt=''/></td><td id='saveWait_win0' width='35' align='center' valign='middle' background='/cs/ps/cache/image/PTPORTAL_POPBOX_CENTER_1.gif'><img src='/cs/ps/cache/image/PT_LOADER_1.gif' width='24' height='24' alt=''/></td><td nowrap='nowrap' background='/cs/ps/cache/image/PTPORTAL_POPBOX_CENTER_1.gif'><span id='ptStatusText_win0' dir='ltr' class='PSPROCESSING'>&nbsp;</span></td><td><img src='/cs/ps/cache/image/PTPORTAL_POPBOX_RIGHT_1.gif' width='6' height='39' alt=''/></td><td>&nbsp;</td></tr></table></div><a name='ICFirstAnchor_win0'></a>
+<form name='win0' method='post' action="https://kusis.ku.edu.tr/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL"  autocomplete='off' class='PSForm'>
+<DIV id='win0divPSHIDDENFIELDS' style='display:none'><input type='hidden' name='ICType' id='ICType' value='Panel' />
+<input type='hidden' name='ICElementNum' id='ICElementNum' value='0' />
+<input type='hidden' name='ICStateNum' id='ICStateNum' value='2' />
+<input type='hidden' name='ICAction' id='ICAction' value='None' />
+<input type='hidden' name='ICXPos' id='ICXPos' value='0' />
+<input type='hidden' name='ICYPos' id='ICYPos' value='0' />
+<input type='hidden' name='ResponsetoDiffFrame' id='ResponsetoDiffFrame' value='-1' />
+<input type='hidden' name='TargetFrameName' id='TargetFrameName' value='None' />
+<input type='hidden' name='FacetPath' id='FacetPath' value='None' />
+<input type='hidden' name='ICFocus' id='ICFocus' value='' />
+<input type='hidden' name='ICSaveWarningFilter' id='ICSaveWarningFilter' value='0' />
+<input type='hidden' name='ICChanged' id='ICChanged' value='-1' />
+<input type='hidden' name='ICResubmit' id='ICResubmit' value='0' />
+<input type='hidden' name='ICSID' id='ICSID' value='JBlTlaBEzhGGwzbHlNO/FyE1K1QRnowL2j3yOOPOKIY=' />
+<input type='hidden' name='ICActionPrompt' id='ICActionPrompt' value='false' />
+<input type='hidden' name='ICTypeAheadID' id='ICTypeAheadID' value='' />
+<input type='hidden' name='ICFind' id='ICFind' value='' />
+<input type='hidden' name='ICAddCount' id='ICAddCount' value='' />
+<input type='hidden' name='ICAPPCLSDATA' id='ICAPPCLSDATA' value='' />
+</DIV><DIV id='win0divPSPANELTABS'></DIV><DIV id='win0divPAGECONTAINER'><table class='PSPAGECONTAINER' ><tr><td>
+<DIV id='win0divPSPAGECONTAINER'><table  border='0' id='ACE_width' cellpadding='0' cellspacing='0' class='PSPAGECONTAINER' cols='11' width='1068'>
+<tr>
+<td width='1' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='1' height='1' alt='' /></td>
+<td width='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='1' height='1' alt='' /></td>
+<td width='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='1' height='1' alt='' /></td>
+<td width='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+<td width='410'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='410' height='1' alt='' /></td>
+<td width='308'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='308' height='1' alt='' /></td>
+<td width='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='89'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='89' height='1' alt='' /></td>
+<td width='239'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='239' height='1' alt='' /></td>
+<td width='7'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='7' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='139'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='9'  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSTSNAV_GROUP_BOX'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='1059'>
+<tr><td width='1057'>
+<table  border='0' id='ACE_DERIVED_SSTSNAV_GROUP_BOX' cellpadding='0' cellspacing='0' cols='6' width='1057' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='4' height='1' alt='' /></td>
+<td width='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+<td width='78'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='78' height='1' alt='' /></td>
+<td width='968'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='968' height='1' alt='' /></td>
+<td width='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='21' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSTSNAV_PERSON_NAME'><span  class='PALEVEL0PRIMARY' id='DERIVED_SSTSNAV_PERSON_NAME'>PELİN PULCU</span>
+</DIV></td>
+</tr>
+<tr>
+<td height='64'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='4'  valign='top' align='left'>
+<DIV id='win0div$ICField2'><table cellpadding='2' cellspacing='0' cols='1'  class='PAFRAMELEVEL1WBO'  width='1051'>
+<tr><td width='1047'>
+<table  border='0' id='ACE_$ICField2' cellpadding='0' cellspacing='0' cols='3' width='1047' class='PAFRAMELEVEL1' style='border-style:none' >
+<tr>
+<td width='2' height='7'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+<td width='884'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='884' height='1' alt='' /></td>
+<td width='161'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='161' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='28'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSTSNAV_SSTS_NAV_TABS'><div style="width:884px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<table width=118% border="0" cellspacing="0" cellpadding="0"><tr><td><width="8" height="6"></td>
+<td><height="6" class="SSSTABWIDTH"></td>
+<td><width="8" height="6"></td><td><width="8" height="6"></td>
+<td><height="6" class="SSSTABWIDTH"></td>
+<td><width="8" height="6"></td><td><width="8" height="6"></td>
+<td><height="6" class="SSSTABWIDTH"></td>
+<td><width="8" height="6"></td></tr><tr><td><width="8" height="15"></td>
+<td class="CY2INACTIVETAB" width="33%"><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_PGTR_DE_CMP.GBL?Page=SSR_PRG_TREE_CRDE&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSTABTEXT" >My Progression Report</a></td>
+<td><width="8" height="15"></td><td><width="8" height="15"></td>
+<td class="CY2INACTIVETAB" width="33%"><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSS_PE_SS_PLNR.GBL?Page=SSS_MEP&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSTABTEXT" >My Course Planner</a></td>
+<td><width="8" height="15"></td><td><width="8" height="15"></td>
+<td class="CY2ACTIVETAB" width="33%"><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL?Page=SSR_APT_SCHD_BLDR&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSTABMAINTEXT" >My Enrollments</a></td>
+<td><width="8" height="15"></td></tr><tr><td><width="8" height="2"></td>
+<td><height="2" class="SSSTABWIDTH"></td>
+<td><width="8" height="2"></td><td><width="8" height="2"></td>
+<td><height="2" class="SSSTABWIDTH"></td>
+<td><width="8" height="2"></td><td><width="8" height="2"></td>
+<td><height="2" class="SSSTABWIDTH"></td>
+<td><width="8" height="2"></td></tr></table>
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='25'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSTSNAV_SSTS_NAV_SUBTABS'><div style="width:884px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<table width=118% border="0" cellspacing="0" cellpadding="0"><tr><td><width="8" height="2"></td>
+<td height="2"> </td>
+<td><width="8" height="2"></td><td><width="8" height="2"></td>
+<td height="2"> </td>
+<td><width="8" height="2"></td></tr><tr><td><width="8" height="15"></td>
+<td class="CY2ACTIVETAB" width="50%"><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL?Page=SSR_APT_SCHD_BLDR&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSTABMAINTEXT" >my planned enrollments</a></td>
+<td><width="8" height="15"></td><td><width="8" height="15"></td>
+<td class="CY2INACTIVETAB" width="50%"><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_SS_MY_CLASSES.GBL?Page=SSR_SS_MY_CLASSES&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSTABTEXT" >my confirmed enrollments</a></td>
+<td><width="8" height="15"></td></tr><tr><td><width="8" height="1"></td>
+<td height="1"> </td>
+<td><width="8" height="1"></td><td><width="8" height="1"></td>
+<td height="1"> </td>
+<td><width="8" height="1"></td></tr></table>
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField5'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='80'>
+<tr><td width='78' height='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='78' height='1' alt='' />
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='23' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<DIV id='win0divDERIVED_REGFRM1_SS_TRANSACT_TITLE'><span  class='PATRANSACTIONTITLE' id='DERIVED_REGFRM1_SS_TRANSACT_TITLE'>My Planned Enrollments</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='10'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='68' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='7'  valign='top' align='left'>
+<DIV id='win0div$ICField8'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='819'>
+<tr><td width='817'>
+<table  border='0' id='ACE_$ICField8' cellpadding='0' cellspacing='0' cols='3' width='817' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='7' height='12'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='7' height='1' alt='' /></td>
+<td width='796'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='796' height='1' alt='' /></td>
+<td width='14'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='14' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='54'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField9'><span  class='PAPAGEINSTRUCTIONS' >Use planned enrollments to select classes. You can temporarily save classes until it is time to enroll for this term. Click choose main section to select a class section, click change main section to select a different class section. Related sections can be changed using the change button when available. Click Add/Change Courses to add or changes courses. Click Enroll in Classes when ready to enroll.</span>
+</DIV></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='12'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='4' colspan='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='32' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSR_AIR_DESCR100'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='719'>
+<tr><td class='PAGROUPBOXLABELINVISIBLE'  align='left'>Description</td></tr>
+<tr><td width='717'>
+<table  border='0' id='ACE_DERIVED_SSR_AIR_DESCR100' cellpadding='0' cellspacing='0' cols='4' width='717' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='8' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='239'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='239' height='1' alt='' /></td>
+<td width='136'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='136' height='1' alt='' /></td>
+<td width='334'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='334' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField12'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='135'>
+<tr><td width='133'>
+<table  border='0' id='ACE_$ICField12' cellpadding='0' cellspacing='0' cols='2' width='133' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='130'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='130' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='13'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_PRGTRE1_WRK_SSR_CHANGE_PROG'><span  class='SSSBUTTON_CONFIRMLINK' ><a name='SSR_PRGTRE1_WRK_SSR_CHANGE_PROG' id='SSR_PRGTRE1_WRK_SSR_CHANGE_PROG' ptlinktgt='pt_peoplecode' tabindex='22' href="javascript:submitAction_win0(document.win0,'SSR_PRGTRE1_WRK_SSR_CHANGE_PROG');"  class='SSSBUTTON_CONFIRMLINK' >Change Program</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='14'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSR_AIR_DESCR100$11$'><span  class='SSSPAGEKEYTEXT' id='DERIVED_SSR_AIR_DESCR100$11$'>Koç University | Electrical and Electronics Engineering*</span>
+</DIV></td>
+</tr>
+<tr>
+<td height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td colspan='3' rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='28'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='7'  valign='top' align='left'>
+<DIV id='win0div$ICField26'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='731'>
+<tr><td width='729'>
+<table  border='0' id='ACE_$ICField26' cellpadding='0' cellspacing='0' cols='3' width='729' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='577'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='577' height='1' alt='' /></td>
+<td width='149'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='149' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0divCY2_SS_APT_WRK_STRM'><select name='CY2_SS_APT_WRK_STRM' id='CY2_SS_APT_WRK_STRM' tabindex='25' size='1'  class='PALEVEL0SECONDARY' style='width:540px; ' onchange="addchg_win0(this);submitAction_win0(this.form,this.name);"  PSnchg='0'>
+<option value="2152" selected='selected'>				Koç University | Undergraduate | Spring 2016</option>
+<option value="2151">			Koç University | Undergraduate | Fall 2015</option>
+<option value="2143">		Koç University | Undergraduate | Summer 2015</option>
+<option value="2142">	Koç University | Undergraduate | Spring 2015</option>
+<option value="2141">Koç University | Undergraduate | Fall 2014</option>
+</select>
+</DIV></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_AIR_HDR_DESCR50$29$'><span  class='PALEVEL0SECONDARY' id='SSR_AIR_HDR_DESCR50$29$'>&nbsp;</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='4'  valign='top' align='left'>
+<DIV id='win0divDERIVED_REGFRM1_SSR_SCHED_FORMAT'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='413'>
+<tr><td width='411'>
+<table  border='0' id='ACE_DERIVED_REGFRM1_SSR_SCHED_FORMAT' cellpadding='0' cellspacing='0' cols='4' width='411' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='5' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='5' height='1' alt='' /></td>
+<td width='132'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='132' height='1' alt='' /></td>
+<td width='84'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='84' height='1' alt='' /></td>
+<td width='190'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='190' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='2' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divDERIVED_REGFRM1_SSR_SCHED_FORMAT$20$'><input type='radio' name='DERIVED_REGFRM1_SSR_SCHED_FORMAT$20$' id='DERIVED_REGFRM1_SSR_SCHED_FORMAT$20$' class='PSRADIOBUTTON' tabindex='23' value="L" checked='checked' onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);"  /><label for='DERIVED_REGFRM1_SSR_SCHED_FORMAT$20$' id='DERIVED_REGFRM1_SSR_SCHED_FORMAT$20$_LBL' class='PSRADIOBUTTON' >List View</label>
+
+</DIV></td>
+<td rowspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divDERIVED_REGFRM1_SSR_SCHED_FORMAT$21$'><input type='radio' name='DERIVED_REGFRM1_SSR_SCHED_FORMAT$20$' id='DERIVED_REGFRM1_SSR_SCHED_FORMAT$21$' class='PSRADIOBUTTON' tabindex='24' value="W" onclick="setupTimeout2();addchg_win0(this);submitAction_win0(this.form,this.name);"  /><label for='DERIVED_REGFRM1_SSR_SCHED_FORMAT$21$' id='DERIVED_REGFRM1_SSR_SCHED_FORMAT$21$_LBL' class='PSRADIOBUTTON' >Weekly Calendar View</label>
+
+</DIV></td>
+</tr>
+<tr>
+<td height='14'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divDERIVED_REGFRM1_SSR_SCHED_FORMAT$19$lbl'><span  class='SSSTEXTTURQBOLD' >Select Display Option</span> </DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td colspan='3' rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='838' colspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWRK_SSR_PENDING_ENROLL'><table cellpadding='2' cellspacing='0' cols='1'  class='PSGROUPBOXWBO'  width='719'>
+<tr><td class='PAGROUPDIVIDER'  align='left'><DIV id='win0divSSR_APT_CARTWRK_SSR_PENDING_ENROLLGP'><a class='PSHYPERLINK' name='SSR_APT_CARTWRK_SSR_PENDING_ENROLL' id='SSR_APT_CARTWRK_SSR_PENDING_ENROLL' tabindex='59' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWRK_SSR_PENDING_ENROLL');"><img src='/cs/ps/cache/image/PS_COLLAPSE_ICN_1.gif' alt='Collapse section Planned Enrollments' title='Collapse section' border='0' /></a>&nbsp;Planned Enrollments&nbsp;</DIV></td></tr>
+<tr><td width='717'>
+<table  border='0' id='ACE_SSR_APT_CARTWRK_SSR_PENDING_ENROLL' cellpadding='0' cellspacing='0' cols='11' width='717' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='3' height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='152'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='152' height='1' alt='' /></td>
+<td width='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='4' height='1' alt='' /></td>
+<td width='160'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='160' height='1' alt='' /></td>
+<td width='184'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='184' height='1' alt='' /></td>
+<td width='160'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='160' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='20'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='20' height='1' alt='' /></td>
+<td width='7'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='7' height='1' alt='' /></td>
+<td width='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='66'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='9'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWRK_GROUPBOX3'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='710'>
+<tr><td width='708'>
+<table  border='0' id='ACE_SSR_APT_CARTWRK_GROUPBOX3' cellpadding='0' cellspacing='0' cols='5' width='708' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='7' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='7' height='1' alt='' /></td>
+<td width='125'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='125' height='1' alt='' /></td>
+<td width='551'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='551' height='1' alt='' /></td>
+<td width='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='5' height='1' alt='' /></td>
+<td width='20'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='20' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='42' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2'  valign='top' align='left'>
+<DIV id='win0divDERIVED_REGFRM1_'><table cellpadding='2' cellspacing='0' cols='1'  class='SSSKEYFRAMEWBO'  width='555'>
+<tr><td width='551'>
+<table  border='0' id='ACE_DERIVED_REGFRM1_' cellpadding='0' cellspacing='0' cols='14' width='551' class='SSSKEYFRAME' style='border-style:none' >
+<tr>
+<td width='150' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='150' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='44'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='44' height='1' alt='' /></td>
+<td width='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='36' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='52'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='52' height='1' alt='' /></td>
+<td width='20'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='20' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='72'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='72' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='18' height='1' alt='' /></td>
+<td width='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+<td width='84'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='84' height='1' alt='' /></td>
+<td width='17'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='17' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='2' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='5'  valign='top' align='left'>
+<DIV id='win0div$ICField61'><span  class='SSSKEYTEXT' >Open</span>
+</DIV></td>
+<td colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='5'  valign='top' align='left'>
+<DIV id='win0div$ICField63'><span  class='SSSKEYTEXT' >Closed</span>
+</DIV></td>
+<td colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='5'  valign='top' align='left'>
+<DIV id='win0div$ICField65'><span  class='SSSKEYTEXT' >Wait List</span>
+</DIV></td>
+<td colspan='3' rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='5'  valign='top' align='left'>
+<DIV id='win0div$ICField67'><span  class='SSSKEYTEXT' >None Selected</span>
+</DIV></td>
+<td rowspan='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField60'><img src=/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif width='16' height='16' alt='Open' title='Open' class='PSSTATICIMAGE' />
+</DIV></td>
+<td rowspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField62'><img src=/cs/ps/cache/image/PS_CS_STATUS_CLOSED_ICN_1.gif width='16' height='16' alt='Closed' title='Closed' class='PSSTATICIMAGE' />
+</DIV></td>
+<td rowspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField64'><img src=/cs/ps/cache/image/PS_CS_STATUS_WAITLIST_ICN_1.gif width='16' height='16' alt='Wait List' title='Wait List' class='PSSTATICIMAGE' />
+</DIV></td>
+</tr>
+<tr>
+<td height='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField66'><img src=/cs/ps/cache/image/PS_RED_STAR_ICN_1.gif width='16' height='16' alt='None Selected' title='None Selected' class='PSSTATICIMAGE' />
+</DIV></td>
+<td rowspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='0' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='7' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='11'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2'  valign='top' align='left'>
+<hr width='100%' align='left'  class='PSPAGECONTAINER'  />
+</td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='696'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='8'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_EQS_VW$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  id='SSR_APT_EQS_VW$scrolli$0' width='703'>
+<tr><td width='701'>
+<table  border='0' id='ACE_SSR_APT_EQS_VW$0' cellpadding='0' cellspacing='0' cols='3' width='701' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='692'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='692' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='684'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<table  border='0' id='ACE_SSR_APT_EQS_VW_DESCR50$0' cellpadding='0' cellspacing='0' cols='5' width='689' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='56'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='56' height='1' alt='' /></td>
+<td width='616'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='616' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='652'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CART_VW$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PSPAGECONTAINERWBO'  id='SSR_APT_CART_VW$scrolli$0' width='679'>
+<tr><td width='677'>
+<table  border='0' id='ACE_SSR_APT_CART_VW$0' cellpadding='0' cellspacing='0' cols='4' width='677' class='PSPAGECONTAINER' style='border-style:none' >
+<tr>
+<td width='0' height='7'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='672'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='672' height='1' alt='' /></td>
+<td width='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='108' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField77$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='671'>
+<tr><td width='669'>
+<table  border='0' id='ACE_$ICField77$0' cellpadding='0' cellspacing='0' cols='4' width='669' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='312'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='312' height='1' alt='' /></td>
+<td width='348'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='348' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='12' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0div$ICField101$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='347'>
+<tr><td width='345'>
+<table  border='0' id='ACE_$ICField101$0' cellpadding='0' cellspacing='0' cols='3' width='345' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='336'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='336' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='92'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_REGFORM_VW2$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  id='SSR_REGFORM_VW2$scrolli$0' width='335'>
+<tr><td width='333'>
+<table  border='0' id='ACE_SSR_REGFORM_VW2$0' cellpadding='0' cellspacing='0' cols='5' width='333' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='176'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='176' height='1' alt='' /></td>
+<td width='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='4' height='1' alt='' /></td>
+<td width='144'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='144' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='40'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField187$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$0' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$0'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$0'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$0' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$0' ptlinktgt='pt_peoplecode' tabindex='233' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$0');"  class='SSSHYPERLINK' >1 - Lecture</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$0'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$0'>TuTh 11:30 - 12:45<br />
+SOSB10</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td colspan='3' rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField187$1'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$1' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$1'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$1'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$1' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$1' ptlinktgt='pt_peoplecode' tabindex='236' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$1');"  class='SSSHYPERLINK' >LABA - Laboratory</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$1'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$1'>Fr 08:30 - 11:15<br />
+ENG114</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField192$1'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='143'>
+<tr><td width='141'>
+<table  border='0' id='ACE_$ICField192$1' cellpadding='0' cellspacing='0' cols='2' width='141' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='138'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='138' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='29'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSS_PB_CHANGE$1'><span  class='SSSBUTTON_ACTIONLINK'  title='Change Section' ><a name='SSR_APT_CARTWK3_SSS_PB_CHANGE$1' id='SSR_APT_CARTWK3_SSS_PB_CHANGE$1' ptlinktgt='pt_peoplecode' tabindex='238' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSS_PB_CHANGE$1');"  class='SSSBUTTON_ACTIONLINK' >Change</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='44'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField78$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='312'>
+<tr><td width='310'>
+<table  border='0' id='ACE_$ICField78$0' cellpadding='0' cellspacing='0' cols='5' width='310' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='241'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='241' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_SSR_PB_DELETE$0'><a name='SSR_APT_CARTWK2_SSR_PB_DELETE$0' id='SSR_APT_CARTWK2_SSR_PB_DELETE$0' tabindex='93' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_SSR_PB_DELETE$0');"><img src='/cs/ps/cache/image/PS_DELETE_ICN_1.gif' name='SSR_APT_CARTWK2_SSR_PB_DELETE$IMG$0' alt='Delete'title='Delete'border='0' /></a>
+</DIV></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_PB_UPDATE$0'><a name='SSR_APT_CARTWK2_PB_UPDATE$0' id='SSR_APT_CARTWK2_PB_UPDATE$0' tabindex='94' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_PB_UPDATE$0');"><img src='/cs/ps/cache/image/PS_CS_OPTIONS_1.png' name='SSR_APT_CARTWK2_PB_UPDATE$IMG$0' alt='Update enrollment options'title='Update enrollment options'border='0' /></a>
+</DIV></td>
+<td colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR50$0'><span  class='PSHYPERLINKNOULBOLD'  title='View Details' ><a name='SSR_APT_CARTWK2_DESCR50$0' id='SSR_APT_CARTWK2_DESCR50$0' ptlinktgt='pt_peoplecode' tabindex='87' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_DESCR50$0');"  class='PSHYPERLINKNOULBOLD' >ELEC 202: CIRCUIT ANALYSIS</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR60$0'><span  class='PSEDITBOX_DISPONLY' id='SSR_APT_CARTWK2_DESCR60$0'>Required Course*&nbsp; | 4.00 Credits</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='10' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='0' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='14'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<hr width='100%' align='left'  class='PSPAGECONTAINER'  />
+</td>
+</tr>
+<tr>
+<td height='108' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField77$1'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='671'>
+<tr><td width='669'>
+<table  border='0' id='ACE_$ICField77$1' cellpadding='0' cellspacing='0' cols='4' width='669' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='312'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='312' height='1' alt='' /></td>
+<td width='348'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='348' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='12' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0div$ICField101$1'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='347'>
+<tr><td width='345'>
+<table  border='0' id='ACE_$ICField101$1' cellpadding='0' cellspacing='0' cols='3' width='345' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='336'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='336' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='92'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_REGFORM_VW2$1'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  id='SSR_REGFORM_VW2$scrolli$1' width='335'>
+<tr><td width='333'>
+<table  border='0' id='ACE_SSR_REGFORM_VW2$1' cellpadding='0' cellspacing='0' cols='5' width='333' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='176'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='176' height='1' alt='' /></td>
+<td width='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='4' height='1' alt='' /></td>
+<td width='144'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='144' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField187$2'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$2' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$2'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$2'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$2' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$2' ptlinktgt='pt_peoplecode' tabindex='398' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$2');"  class='SSSHYPERLINK' >2 - Lecture</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$2'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$2'>MoWe 11:30 - 12:45<br />
+SOSB08</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField192$2'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='143'>
+<tr><td width='141'>
+<table  border='0' id='ACE_$ICField192$2' cellpadding='0' cellspacing='0' cols='2' width='141' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='138'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='138' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_SSR_PB_CLASS_SRCH$105$$1'><span  class='SSSBUTTON_ACTIONLINK' ><a name='SSR_APT_CARTWK2_SSR_PB_CLASS_SRCH$105$$1' id='SSR_APT_CARTWK2_SSR_PB_CLASS_SRCH$105$$1' ptlinktgt='pt_peoplecode' tabindex='257' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_SSR_PB_CLASS_SRCH$105$$1');"  class='SSSBUTTON_ACTIONLINK' >Change Main Section</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField187$3'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$3' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$3'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$3'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$3' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$3' ptlinktgt='pt_peoplecode' tabindex='401' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$3');"  class='SSSHYPERLINK' >LABE - Laboratory</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$3'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$3'>Fr 12:30 - 14:20<br />
+ENGZ40</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField192$3'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='143'>
+<tr><td width='141'>
+<table  border='0' id='ACE_$ICField192$3' cellpadding='0' cellspacing='0' cols='2' width='141' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='138'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='138' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='29'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSS_PB_CHANGE$3'><span  class='SSSBUTTON_ACTIONLINK'  title='Change Section' ><a name='SSR_APT_CARTWK3_SSS_PB_CHANGE$3' id='SSR_APT_CARTWK3_SSS_PB_CHANGE$3' ptlinktgt='pt_peoplecode' tabindex='403' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSS_PB_CHANGE$3');"  class='SSSBUTTON_ACTIONLINK' >Change</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='44'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField78$1'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='312'>
+<tr><td width='310'>
+<table  border='0' id='ACE_$ICField78$1' cellpadding='0' cellspacing='0' cols='5' width='310' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='241'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='241' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_SSR_PB_DELETE$1'><a name='SSR_APT_CARTWK2_SSR_PB_DELETE$1' id='SSR_APT_CARTWK2_SSR_PB_DELETE$1' tabindex='258' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_SSR_PB_DELETE$1');"><img src='/cs/ps/cache/image/PS_DELETE_ICN_1.gif' name='SSR_APT_CARTWK2_SSR_PB_DELETE$IMG$1' alt='Delete'title='Delete'border='0' /></a>
+</DIV></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_PB_UPDATE$1'><a name='SSR_APT_CARTWK2_PB_UPDATE$1' id='SSR_APT_CARTWK2_PB_UPDATE$1' tabindex='259' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_PB_UPDATE$1');"><img src='/cs/ps/cache/image/PS_CS_OPTIONS_1.png' name='SSR_APT_CARTWK2_PB_UPDATE$IMG$1' alt='Update enrollment options'title='Update enrollment options'border='0' /></a>
+</DIV></td>
+<td colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR50$1'><span  class='PSHYPERLINKNOULBOLD'  title='View Details' ><a name='SSR_APT_CARTWK2_DESCR50$1' id='SSR_APT_CARTWK2_DESCR50$1' ptlinktgt='pt_peoplecode' tabindex='252' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_DESCR50$1');"  class='PSHYPERLINKNOULBOLD' >MBGE 200: INTRODUCTORY BIOLOGY</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR60$1'><span  class='PSEDITBOX_DISPONLY' id='SSR_APT_CARTWK2_DESCR60$1'>Required Course*&nbsp; | 4.00 Credits</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='10' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='0' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='14'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<hr width='100%' align='left'  class='PSPAGECONTAINER'  />
+</td>
+</tr>
+<tr>
+<td height='108' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField77$2'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='671'>
+<tr><td width='669'>
+<table  border='0' id='ACE_$ICField77$2' cellpadding='0' cellspacing='0' cols='4' width='669' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='312'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='312' height='1' alt='' /></td>
+<td width='348'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='348' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='12' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0div$ICField101$2'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='347'>
+<tr><td width='345'>
+<table  border='0' id='ACE_$ICField101$2' cellpadding='0' cellspacing='0' cols='3' width='345' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='336'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='336' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='92'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_REGFORM_VW2$2'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  id='SSR_REGFORM_VW2$scrolli$2' width='335'>
+<tr><td width='333'>
+<table  border='0' id='ACE_SSR_REGFORM_VW2$2' cellpadding='0' cellspacing='0' cols='5' width='333' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='176'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='176' height='1' alt='' /></td>
+<td width='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='4' height='1' alt='' /></td>
+<td width='144'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='144' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='40'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField187$4'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$4' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$4'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$4'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$4' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$4' ptlinktgt='pt_peoplecode' tabindex='563' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$4');"  class='SSSHYPERLINK' >1 - Lecture</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$4'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$4'>TuTh 14:30 - 15:45<br />
+ENGZ50</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td colspan='3' rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField187$5'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$5' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$5'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$5'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$5' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$5' ptlinktgt='pt_peoplecode' tabindex='566' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$5');"  class='SSSHYPERLINK' >PSB - ProbSess</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$5'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$5'>Fr 16:00 - 17:15<br />
+CASEB24</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField192$5'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='143'>
+<tr><td width='141'>
+<table  border='0' id='ACE_$ICField192$5' cellpadding='0' cellspacing='0' cols='2' width='141' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='138'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='138' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='29'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSS_PB_CHANGE$5'><span  class='SSSBUTTON_ACTIONLINK'  title='Change Section' ><a name='SSR_APT_CARTWK3_SSS_PB_CHANGE$5' id='SSR_APT_CARTWK3_SSS_PB_CHANGE$5' ptlinktgt='pt_peoplecode' tabindex='568' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSS_PB_CHANGE$5');"  class='SSSBUTTON_ACTIONLINK' >Change</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='44'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField78$2'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='312'>
+<tr><td width='310'>
+<table  border='0' id='ACE_$ICField78$2' cellpadding='0' cellspacing='0' cols='5' width='310' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='241'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='241' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_SSR_PB_DELETE$2'><a name='SSR_APT_CARTWK2_SSR_PB_DELETE$2' id='SSR_APT_CARTWK2_SSR_PB_DELETE$2' tabindex='423' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_SSR_PB_DELETE$2');"><img src='/cs/ps/cache/image/PS_DELETE_ICN_1.gif' name='SSR_APT_CARTWK2_SSR_PB_DELETE$IMG$2' alt='Delete'title='Delete'border='0' /></a>
+</DIV></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_PB_UPDATE$2'><a name='SSR_APT_CARTWK2_PB_UPDATE$2' id='SSR_APT_CARTWK2_PB_UPDATE$2' tabindex='424' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_PB_UPDATE$2');"><img src='/cs/ps/cache/image/PS_CS_OPTIONS_1.png' name='SSR_APT_CARTWK2_PB_UPDATE$IMG$2' alt='Update enrollment options'title='Update enrollment options'border='0' /></a>
+</DIV></td>
+<td colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR50$2'><span  class='PSHYPERLINKNOULBOLD'  title='View Details' ><a name='SSR_APT_CARTWK2_DESCR50$2' id='SSR_APT_CARTWK2_DESCR50$2' ptlinktgt='pt_peoplecode' tabindex='417' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_DESCR50$2');"  class='PSHYPERLINKNOULBOLD' >INDR 252: APPLIED STATISTICS</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR60$2'><span  class='PSEDITBOX_DISPONLY' id='SSR_APT_CARTWK2_DESCR60$2'>General Elective&nbsp; | 4.00 Credits</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='10' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='0' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='14'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<hr width='100%' align='left'  class='PSPAGECONTAINER'  />
+</td>
+</tr>
+<tr>
+<td height='108' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField77$3'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='671'>
+<tr><td width='669'>
+<table  border='0' id='ACE_$ICField77$3' cellpadding='0' cellspacing='0' cols='4' width='669' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='312'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='312' height='1' alt='' /></td>
+<td width='348'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='348' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='12' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0div$ICField101$3'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='347'>
+<tr><td width='345'>
+<table  border='0' id='ACE_$ICField101$3' cellpadding='0' cellspacing='0' cols='3' width='345' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='336'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='336' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='92'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_REGFORM_VW2$3'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  id='SSR_REGFORM_VW2$scrolli$3' width='335'>
+<tr><td width='333'>
+<table  border='0' id='ACE_SSR_REGFORM_VW2$3' cellpadding='0' cellspacing='0' cols='5' width='333' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='176'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='176' height='1' alt='' /></td>
+<td width='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='4' height='1' alt='' /></td>
+<td width='144'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='144' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField187$6'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$6' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$6'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$6'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$6' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$6' ptlinktgt='pt_peoplecode' tabindex='728' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$6');"  class='SSSHYPERLINK' >2 - Lecture</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$6'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$6'>MoWe 13:00 - 14:15<br />
+CASEZ48</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField192$6'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='143'>
+<tr><td width='141'>
+<table  border='0' id='ACE_$ICField192$6' cellpadding='0' cellspacing='0' cols='2' width='141' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='138'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='138' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_SSR_PB_CLASS_SRCH$105$$3'><span  class='SSSBUTTON_ACTIONLINK' ><a name='SSR_APT_CARTWK2_SSR_PB_CLASS_SRCH$105$$3' id='SSR_APT_CARTWK2_SSR_PB_CLASS_SRCH$105$$3' ptlinktgt='pt_peoplecode' tabindex='587' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_SSR_PB_CLASS_SRCH$105$$3');"  class='SSSBUTTON_ACTIONLINK' >Change Main Section</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField187$7'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$7' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$7'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$7'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$7' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$7' ptlinktgt='pt_peoplecode' tabindex='731' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$7');"  class='SSSHYPERLINK' >PSC - ProbSess</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$7'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$7'>Fr 11:30 - 12:20<br />
+ENGZ27-KOLT Aktif Öğrenme Sını</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField192$7'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='143'>
+<tr><td width='141'>
+<table  border='0' id='ACE_$ICField192$7' cellpadding='0' cellspacing='0' cols='2' width='141' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='138'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='138' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='29'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSS_PB_CHANGE$7'><span  class='SSSBUTTON_ACTIONLINK'  title='Change Section' ><a name='SSR_APT_CARTWK3_SSS_PB_CHANGE$7' id='SSR_APT_CARTWK3_SSS_PB_CHANGE$7' ptlinktgt='pt_peoplecode' tabindex='733' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSS_PB_CHANGE$7');"  class='SSSBUTTON_ACTIONLINK' >Change</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='44'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField78$3'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='312'>
+<tr><td width='310'>
+<table  border='0' id='ACE_$ICField78$3' cellpadding='0' cellspacing='0' cols='5' width='310' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='241'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='241' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_SSR_PB_DELETE$3'><a name='SSR_APT_CARTWK2_SSR_PB_DELETE$3' id='SSR_APT_CARTWK2_SSR_PB_DELETE$3' tabindex='588' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_SSR_PB_DELETE$3');"><img src='/cs/ps/cache/image/PS_DELETE_ICN_1.gif' name='SSR_APT_CARTWK2_SSR_PB_DELETE$IMG$3' alt='Delete'title='Delete'border='0' /></a>
+</DIV></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_PB_UPDATE$3'><a name='SSR_APT_CARTWK2_PB_UPDATE$3' id='SSR_APT_CARTWK2_PB_UPDATE$3' tabindex='589' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_PB_UPDATE$3');"><img src='/cs/ps/cache/image/PS_CS_OPTIONS_1.png' name='SSR_APT_CARTWK2_PB_UPDATE$IMG$3' alt='Update enrollment options'title='Update enrollment options'border='0' /></a>
+</DIV></td>
+<td colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR50$3'><span  class='PSHYPERLINKNOULBOLD'  title='View Details' ><a name='SSR_APT_CARTWK2_DESCR50$3' id='SSR_APT_CARTWK2_DESCR50$3' ptlinktgt='pt_peoplecode' tabindex='582' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_DESCR50$3');"  class='PSHYPERLINKNOULBOLD' >INDR 262: INTRO OPT. METHODS</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR60$3'><span  class='PSEDITBOX_DISPONLY' id='SSR_APT_CARTWK2_DESCR60$3'>General Elective&nbsp; | 4.00 Credits</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='10' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='0' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='14'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<hr width='100%' align='left'  class='PSPAGECONTAINER'  />
+</td>
+</tr>
+<tr>
+<td height='155' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField77$4'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='671'>
+<tr><td width='669'>
+<table  border='0' id='ACE_$ICField77$4' cellpadding='0' cellspacing='0' cols='4' width='669' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='312'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='312' height='1' alt='' /></td>
+<td width='348'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='348' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='12' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0div$ICField101$4'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='347'>
+<tr><td width='345'>
+<table  border='0' id='ACE_$ICField101$4' cellpadding='0' cellspacing='0' cols='3' width='345' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='336'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='336' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='140'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_REGFORM_VW2$4'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  id='SSR_REGFORM_VW2$scrolli$4' width='335'>
+<tr><td width='333'>
+<table  border='0' id='ACE_SSR_REGFORM_VW2$4' cellpadding='0' cellspacing='0' cols='5' width='333' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='176'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='176' height='1' alt='' /></td>
+<td width='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='4' height='1' alt='' /></td>
+<td width='144'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='144' height='1' alt='' /></td>
+<td width='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='6' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='40'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField187$8'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$8' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$8'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$8'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$8' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$8' ptlinktgt='pt_peoplecode' tabindex='893' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$8');"  class='SSSHYPERLINK' >1 - Lecture</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$8'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$8'>TuTh 13:00 - 14:15<br />
+SOSB21</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td colspan='3' rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField187$9'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$9' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$9'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$9'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$9' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$9' ptlinktgt='pt_peoplecode' tabindex='896' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$9');"  class='SSSHYPERLINK' >LABH - Laboratory</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$9'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$9'>We 14:30 - 17:15<br />
+SCIZ34</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField192$9'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='143'>
+<tr><td width='141'>
+<table  border='0' id='ACE_$ICField192$9' cellpadding='0' cellspacing='0' cols='2' width='141' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='138'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='138' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='29'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSS_PB_CHANGE$9'><span  class='SSSBUTTON_ACTIONLINK'  title='Change Section' ><a name='SSR_APT_CARTWK3_SSS_PB_CHANGE$9' id='SSR_APT_CARTWK3_SSS_PB_CHANGE$9' ptlinktgt='pt_peoplecode' tabindex='898' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSS_PB_CHANGE$9');"  class='SSSBUTTON_ACTIONLINK' >Change</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='36'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField187$10'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='176'>
+<tr><td width='174'>
+<table  border='0' id='ACE_$ICField187$10' cellpadding='0' cellspacing='0' cols='5' width='174' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='16'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='16' height='1' alt='' /></td>
+<td width='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='8' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='129'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='129' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_STATUS_LONG$10'><div style="width:16px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<img src="/cs/ps/cache/image/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" class="PSSTATICIMAGE">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_CLASSNAME_LONG$10'><span  class='SSSHYPERLINK'  title='View Details' ><a name='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$10' id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$10' ptlinktgt='pt_peoplecode' tabindex='899' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$10');"  class='SSSHYPERLINK' >PSB - ProbSess</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='18'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$10'><span  class='PSLONGEDITBOX' id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$10'>Fr 14:30 - 15:45<br />
+STDB336</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField192$10'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='143'>
+<tr><td width='141'>
+<table  border='0' id='ACE_$ICField192$10' cellpadding='0' cellspacing='0' cols='2' width='141' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='138'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='138' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='29'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK3_SSS_PB_CHANGE$10'><span  class='SSSBUTTON_ACTIONLINK'  title='Change Section' ><a name='SSR_APT_CARTWK3_SSS_PB_CHANGE$10' id='SSR_APT_CARTWK3_SSS_PB_CHANGE$10' ptlinktgt='pt_peoplecode' tabindex='901' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK3_SSS_PB_CHANGE$10');"  class='SSSBUTTON_ACTIONLINK' >Change</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='44'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField78$4'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='312'>
+<tr><td width='310'>
+<table  border='0' id='ACE_$ICField78$4' cellpadding='0' cellspacing='0' cols='5' width='310' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='0' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='24' height='1' alt='' /></td>
+<td width='21'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='21' height='1' alt='' /></td>
+<td width='241'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='241' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_SSR_PB_DELETE$4'><a name='SSR_APT_CARTWK2_SSR_PB_DELETE$4' id='SSR_APT_CARTWK2_SSR_PB_DELETE$4' tabindex='753' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_SSR_PB_DELETE$4');"><img src='/cs/ps/cache/image/PS_DELETE_ICN_1.gif' name='SSR_APT_CARTWK2_SSR_PB_DELETE$IMG$4' alt='Delete'title='Delete'border='0' /></a>
+</DIV></td>
+<td rowspan='3' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_PB_UPDATE$4'><a name='SSR_APT_CARTWK2_PB_UPDATE$4' id='SSR_APT_CARTWK2_PB_UPDATE$4' tabindex='754' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_PB_UPDATE$4');"><img src='/cs/ps/cache/image/PS_CS_OPTIONS_1.png' name='SSR_APT_CARTWK2_PB_UPDATE$IMG$4' alt='Update enrollment options'title='Update enrollment options'border='0' /></a>
+</DIV></td>
+<td colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='24'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR50$4'><span  class='PSHYPERLINKNOULBOLD'  title='View Details' ><a name='SSR_APT_CARTWK2_DESCR50$4' id='SSR_APT_CARTWK2_DESCR50$4' ptlinktgt='pt_peoplecode' tabindex='747' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWK2_DESCR50$4');"  class='PSHYPERLINKNOULBOLD' >PHYS 206: GENERAL PHYSICS IV</a></span>
+</DIV></td>
+</tr>
+<tr>
+<td height='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWK2_DESCR60$4'><span  class='PSEDITBOX_DISPONLY' id='SSR_APT_CARTWK2_DESCR60$4'>--&nbsp; | 4.00 Credits</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='10' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='4' colspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField72$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='56'>
+<tr><td width='54' height='6'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='54' height='1' alt='' />
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='3' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='7' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='9'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='16' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='6'  valign='top' align='left'>
+<hr width='100%' align='left'  class='PSPAGECONTAINER'  />
+</td>
+<td rowspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='20'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2'  valign='top' align='left'>
+<DIV id='win0div$ICField51'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='159'>
+<tr><td width='157'>
+<table  border='0' id='ACE_$ICField51' cellpadding='0' cellspacing='0' cols='2' width='157' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='154'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='154' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='13'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWRK_SSR_ADD_COURSE_PB'><span  class='SSSBUTTON_CONFIRMLINK' ><a name='SSR_APT_CARTWRK_SSR_ADD_COURSE_PB' id='SSR_APT_CARTWRK_SSR_ADD_COURSE_PB' ptlinktgt='pt_peoplecode' tabindex='56' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWRK_SSR_ADD_COURSE_PB');"  class='SSSBUTTON_CONFIRMLINK' >Add/Change Courses</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField53'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='159'>
+<tr><td width='157'>
+<table  border='0' id='ACE_$ICField53' cellpadding='0' cellspacing='0' cols='1' width='157' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='157' height='19'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='157' height='1' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField55'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='159'>
+<tr><td width='157'>
+<table  border='0' id='ACE_$ICField55' cellpadding='0' cellspacing='0' cols='2' width='157' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='5'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='154'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='154' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='13'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWRK_SSR_PB_CONF_SCHED'><span  class='SSSBUTTON_CONFIRMLINK' ><a name='SSR_APT_CARTWRK_SSR_PB_CONF_SCHED' id='SSR_APT_CARTWRK_SSR_PB_CONF_SCHED' ptlinktgt='pt_peoplecode' tabindex='58' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWRK_SSR_PB_CONF_SCHED');"  class='SSSBUTTON_CONFIRMLINK' >Enroll In Classes</a></span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='7'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='134' colspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<DIV id='win0divSSR_APT_CARTWRK_SSR_CURRENT_ENROLL'><table cellpadding='2' cellspacing='0' cols='1'  class='PSGROUPBOXWBO'  width='719'>
+<tr><td class='PAGROUPDIVIDER'  align='left'><DIV id='win0divSSR_APT_CARTWRK_SSR_CURRENT_ENROLLGP'><a class='PSHYPERLINK' name='SSR_APT_CARTWRK_SSR_CURRENT_ENROLL' id='SSR_APT_CARTWRK_SSR_CURRENT_ENROLL' tabindex='941' href="javascript:submitAction_win0(document.win0,'SSR_APT_CARTWRK_SSR_CURRENT_ENROLL');"><img src='/cs/ps/cache/image/PS_COLLAPSE_ICN_1.gif' alt='Collapse section Confirmed Enrollments' title='Collapse section' border='0' /></a>&nbsp;Confirmed Enrollments&nbsp;</DIV></td></tr>
+<tr><td width='717'>
+<table  border='0' id='ACE_SSR_APT_CARTWRK_SSR_CURRENT_ENROLL' cellpadding='0' cellspacing='0' cols='3' width='717' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='3' height='1'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='688'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='688' height='1' alt='' /></td>
+<td width='26'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='26' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='98'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField220$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  id='$ICField220$scrolli$0' width='687'>
+<tr><td width='685'>
+<table  border='0' id='ACE_$ICField220$0' cellpadding='0' cellspacing='0' cols='3' width='685' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='3' height='1' alt='' /></td>
+<td width='680'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='680' height='1' alt='' /></td>
+<td width='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='86'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<table  border='0' id='ACE_SSR_APT_EQS_VW_DESCR50$222$$0' cellpadding='0' cellspacing='0' cols='5' width='677' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='59' height='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='59' height='1' alt='' /></td>
+<td width='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='4' height='1' alt='' /></td>
+<td width='60'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='60' height='1' alt='' /></td>
+<td width='464'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='464' height='1' alt='' /></td>
+<td width='90'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='90' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2'  valign='top' align='left'>
+</td>
+<td colspan='2' rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='4' colspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='49' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='2'  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSS_MSG_GROUPBOX$223$$0'><table cellpadding='2' cellspacing='0' cols='1'  class='SSSMSGINFOFRAMEWBO'  width='523'>
+<tr><td width='519'>
+<table  border='0' id='ACE_DERIVED_SSS_MSG_GROUPBOX$223$$0' cellpadding='0' cellspacing='0' cols='3' width='519' class='SSSMSGINFOFRAME' style='border-style:none' >
+<tr>
+<td width='18' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='18' height='1' alt='' /></td>
+<td width='484'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='484' height='1' alt='' /></td>
+<td width='17'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='17' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='25'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0div$ICField224$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='483'>
+<tr><td width='481'>
+<table  border='0' id='ACE_$ICField224$0' cellpadding='0' cellspacing='0' cols='2' width='481' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='4' height='8'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='4' height='1' alt='' /></td>
+<td width='477'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='477' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='15'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSS_MSG_SS_MESSAGE_LONG$225$$0'><span  class='SSSMSGINFOTEXT' style='word-wrap:break-word;overflow:hidden; width:478px;  overflow:auto;' id='DERIVED_SSS_MSG_SS_MESSAGE_LONG$225$$0'>You are not enrolled in any classes.</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='8' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='7' colspan='4'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='7' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='10' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='10' colspan='7'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='60'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='9'  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSTSNAV_GROUP_BOX$250$'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='1059'>
+<tr><td width='1057'>
+<table  border='0' id='ACE_DERIVED_SSTSNAV_GROUP_BOX$250$' cellpadding='0' cellspacing='0' cols='5' width='1057' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='5' height='0'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='5' height='1' alt='' /></td>
+<td width='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+<td width='884'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='884' height='1' alt='' /></td>
+<td width='164'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='164' height='1' alt='' /></td>
+<td width='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' width='2' height='1' alt='' /></td>
+</tr>
+<tr>
+<td height='13'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td colspan='3'  valign='top' align='left'>
+<hr width='100%' align='left'  class='PSHORIZONTALRULE'  />
+</td>
+<td rowspan='3'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='20' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSTSNAV_SSS_FOOTER_LINKS'><div style="width:884px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<table border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;</td>
+<td><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_PGTR_DE_CMP.GBL?Page=SSR_PRG_TREE_CRDE&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSFOOTERLINKBOLD">My Progression Report</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSS_PE_SS_PLNR.GBL?Page=SSS_MEP&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSFOOTERLINKBOLD">My Course Planner</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL?Page=SSR_APT_SCHD_BLDR&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSFOOTERLINKBOLD">My Enrollments</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td></tr></tr></table>
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td rowspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+<tr>
+<td height='22' colspan='2'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+<td  valign='top' align='left'>
+<DIV id='win0divDERIVED_SSTSNAV_SSS_SUBFOOT_LINKS'><div style="width:884px; display:inline;" >
+<!-- Begin HTML Area Name Undisclosed -->
+<table border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;</td>
+<td><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL?Page=SSR_APT_SCHD_BLDR&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSFOOTERLINK">My Planned Enrollments</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_SS_MY_CLASSES.GBL?Page=SSR_SS_MY_CLASSES&Action=A&EMPLID=0031646&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524" class="SSSFOOTERLINK">My Confirmed Enrollments</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td></tr></tr></table>
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='9' colspan='10'><img src='/cs/ps/cache/image/PT_PIXEL_1.gif' alt='' /></td>
+</tr>
+</table>
+</DIV></td></tr>
+</table>
+<div id='pt_dragtxt' class='PSLEVEL1GRIDCOLUMNHDR'></div><div onmouseup='ptGridResizeObj_win0.TDselUp();' onmousemove='ptGridResizeObj_win0.TDselMove();' id='pt_dragResize' onmouseout='ptGridResizeObj_win0.dragTD=false;' onmbouseover='ptGridResizeObj_win0.dragTD=true;'></div></DIV><div id='DetachDiv' height=0 width=0 frameborder=0></div>
+</form>
+<a name='ICLastAnchor_win0'></a>
+<div id='popupDragFrame' class='popupDragFrame'>&nbsp;</div>
+<!-- Mouse-over popup Begin -->
+<table id='win0MOpopupContainer' width='20' border='0' cellpadding='0' cellspacing='0' style='display:none; position:absolute; top:0; left:0;' onMouseOver="MOpopupObj_win0.StartPopup('win0MOpopupContainer', '');" onMouseOut="MOpopupObj_win0.StopPopup();"><tr>
+<td id='win0MOpopupInner' height='25' width='20' align='left' valign='top' class='MOBGImage'>
+<div id='win0MOdivpopupFrame' tabindex='-1' onclick='MOpopupObj_win0.SetFocusFlag(false);' style='overflow:auto; width:20px; height: 60px; padding:8px; box-shadow:0 0 5px #000000; background-color:white; border: 1px solid #666666;'>test</div></td>
+</tr>
+</table>
+<!-- Mouse-over popup End  -->
+
+<!-- Embedded Help popup Begin -->
+<div id='HelppopupDiv' style='display:none; position:absolute; top:0; left:0'>t</div>
+<div id='HelpDragFrame' class='popupDragFrame'>&nbsp;</div><table id='HelppopupContainer' width='20' border='0' cellpadding='0' cellspacing='0' style='opacity:1; display:none; position:absolute; top:0; left:0' >
+<tr>
+<td id='HelppopupInner' align='left' valign='top' style='position:absolute;z-Index:302;'>
+<div id='HelppopupTitleBar' class='PTPOPUP_HEADER' style='width:341px'><div id='HelppopupTitleBarLeftImage'></div><div id='HelppopupTitleBarMiddle' style='width:333px' dir='ltr'>
+<table>
+<td id='HelppopupTitle' style='width:290px; cursor: move;'><span class='PTPOPUP_TITLE'>Help</span></td>
+<td style='width:45px'><img id='#HELPPOPUPCLOSE' style='cursor:pointer' title='Close' alt='Close' align='right' onclick='HelppopupObj_win0.StopPopup();' src='/cs/ps/cache/image/PT_PORTAL_IC_CLOSE_1.gif'/></td>
+</table>
+</div><div id='HelppopupTitleBarRightImage'></div></div><div id='HelpdivpopupFrame' class='MOBGImage' tabindex='-1' onclick='HelppopupObj_win0.SetFocusFlag(false);' style='border: 1px #bcbaba solid; padding:12px; overflow:auto;'>test</div><div id='HelppopupShadow' class='popupShadow' style='position:absolute;z-index:-1;'><div id='HelppopupShadowTopRightCorner' class='popupShadowTopRightCorner' style='height:10px;'>&nbsp;</div><div id='HelppopupShadowTop' class='popupShadowTop' >&nbsp;</div><div id='HelppopupShadowBottom' class='popupShadowBottom' style='height:10px'><div id='HelppopupShadowBottomLeftCorner' class='popupShadowBottomLeftCorner' style='height:10px;width:10px'>&nbsp;</div><div id='HelppopupShadowBottomMiddle' class='popupShadowBottomMiddle' style='height:10px;'>&nbsp;</div><div id='HelppopupShadowBottomRightCorner' class='popupShadowBottomRightCorner' style='height:10px;width:10px'>&nbsp;</div></div></div></td>
+</tr>
+</table>
+<!-- Embedded Help popup End  -->
+<div id='pt_fakeBC' style='display:none'><ul><li class="pthnavhiearchysep pthbcdispiblock">&nbsp;</li>
+<li class="pthnavbarcref ptabncrefbc ptfakercfbc pthbcdispiblock" id="pthnavbccref_PT_FAKE_SSR_APT_SCHD_BLDR_GBL" ><a class=abnanchor href="https://kusis.ku.edu.tr/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL?Page=SSR_APT_SCHD_BLDR&amp;Action=U&amp;ExactKeys=Y&amp;EMPLID=0031646&amp;INSTITUTION=KOCUN&amp;SSR_APT_INSTANCE=1&amp;SSR_ITEM_ID=00000004524&amp;TargetFrameName=" role="menuitem" target="TargetContent">My Planned Enrollments</a><div class="pthnavcrefimg">&nbsp;</div></li></ul></div><div id='ptus_universalSrch' style='display:none;'><span>Default Local Node:</span><input type='text' readonly='readonly' name='ptus_defaultlocalnode' id='ptus_defaultlocalnode' value='PSFT_HR' /><br /><span>DbName:</span><input type='text' readonly='readonly' name='ptus_dbname' id='ptus_dbname' value='KUPROD' /><br /><span>Portal:</span><input type='text' readonly='readonly' name='ptus_portal' id='ptus_portal' value='EMPLOYEE' /><br /><span>Node:</span><input type='text' readonly='readonly' name='ptus_node' id='ptus_node' value='HRMS' /><br /><span>WorkCenter Id:</span><input type='text' readonly='readonly' name='ptus_workcenterid' id='ptus_workcenterid' value='' /><br /><span>Url:</span><input type='text' readonly='readonly' name='ptus_componenturl' id='ptus_componenturl' value='https://kusis.ku.edu.tr/psp/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL' /><br /></div></body>
+<script language='JavaScript'>
+var bCleanHtml = false;
+var bDefer = true;
+document.deferFldArr_win0 = new Array();
+document.hiddenFldArr_win0 =new Array('ICType','ICElementNum','ICStateNum','ICAction','ICXPos','ICYPos','ResponsetoDiffFrame','TargetFrameName','FacetPath','ICFocus','ICSaveWarningFilter','ICChanged','ICResubmit','ICSID','ICActionPrompt','ICTypeAheadID','ICFind','ICAddCount','ICAPPCLSDATA');
+document.chgFldArr_win0 = new Array();
+var bCDATA = false;
+</script></html>
+

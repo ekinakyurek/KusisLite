@@ -32,6 +32,18 @@
 		C6E528C31BCADF8900F163F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E528B91BCADF8900F163F1 /* ViewController.swift */; };
 		E3237A411C419C48003C0FB7 /* pelin in Resources */ = {isa = PBXBuildFile; fileRef = E3237A401C419C48003C0FB7 /* pelin */; };
 		E39958F01C31EC5900FC423B /* programView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39958EF1C31EC5900FC423B /* programView.swift */; };
+		E3CE40FD1C578FC900DA3726 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE40FB1C578FC900DA3726 /* Bolts.framework */; };
+		E3CE40FE1C578FC900DA3726 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE40FC1C578FC900DA3726 /* Parse.framework */; };
+		E3CE41001C578FEC00DA3726 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE40FF1C578FEC00DA3726 /* AudioToolbox.framework */; };
+		E3CE41021C578FF300DA3726 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE41011C578FF300DA3726 /* CFNetwork.framework */; };
+		E3CE41041C578FFB00DA3726 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE41031C578FFB00DA3726 /* CoreGraphics.framework */; };
+		E3CE41061C57900500DA3726 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE41051C57900500DA3726 /* CoreLocation.framework */; };
+		E3CE41081C57900C00DA3726 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE41071C57900C00DA3726 /* QuartzCore.framework */; };
+		E3CE410A1C57901300DA3726 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE41091C57901300DA3726 /* Security.framework */; };
+		E3CE410C1C57901A00DA3726 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE410B1C57901A00DA3726 /* StoreKit.framework */; };
+		E3CE410E1C57902200DA3726 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE410D1C57902200DA3726 /* SystemConfiguration.framework */; };
+		E3CE41101C57902900DA3726 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE410F1C57902900DA3726 /* libz.tbd */; };
+		E3CE41121C57903000DA3726 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CE41111C57903000DA3726 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +97,18 @@
 		C6E528B91BCADF8900F163F1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E3237A401C419C48003C0FB7 /* pelin */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pelin; sourceTree = "<group>"; };
 		E39958EF1C31EC5900FC423B /* programView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = programView.swift; sourceTree = "<group>"; };
+		E3CE40FB1C578FC900DA3726 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		E3CE40FC1C578FC900DA3726 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		E3CE40FF1C578FEC00DA3726 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E3CE41011C578FF300DA3726 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E3CE41031C578FFB00DA3726 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E3CE41051C57900500DA3726 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E3CE41071C57900C00DA3726 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E3CE41091C57901300DA3726 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E3CE410B1C57901A00DA3726 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E3CE410D1C57902200DA3726 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E3CE410F1C57902900DA3726 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E3CE41111C57903000DA3726 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +116,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3CE41121C57903000DA3726 /* libsqlite3.tbd in Frameworks */,
+				E3CE41101C57902900DA3726 /* libz.tbd in Frameworks */,
+				E3CE410E1C57902200DA3726 /* SystemConfiguration.framework in Frameworks */,
+				E3CE410C1C57901A00DA3726 /* StoreKit.framework in Frameworks */,
+				E3CE410A1C57901300DA3726 /* Security.framework in Frameworks */,
+				E3CE41081C57900C00DA3726 /* QuartzCore.framework in Frameworks */,
+				E3CE41061C57900500DA3726 /* CoreLocation.framework in Frameworks */,
+				E3CE41041C578FFB00DA3726 /* CoreGraphics.framework in Frameworks */,
+				E3CE41021C578FF300DA3726 /* CFNetwork.framework in Frameworks */,
+				E3CE41001C578FEC00DA3726 /* AudioToolbox.framework in Frameworks */,
 				C698744A1BEF95E400A72394 /* libxml2.2.tbd in Frameworks */,
 				C698744B1BEF95E400A72394 /* libxml2.tbd in Frameworks */,
 				C60CF2E01BCAE190000F53D6 /* ExternalAccessory.framework in Frameworks */,
+				E3CE40FD1C578FC900DA3726 /* Bolts.framework in Frameworks */,
+				E3CE40FE1C578FC900DA3726 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +154,18 @@
 		54316D43F722358F45E7E873 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3CE41111C57903000DA3726 /* libsqlite3.tbd */,
+				E3CE410F1C57902900DA3726 /* libz.tbd */,
+				E3CE410D1C57902200DA3726 /* SystemConfiguration.framework */,
+				E3CE410B1C57901A00DA3726 /* StoreKit.framework */,
+				E3CE41091C57901300DA3726 /* Security.framework */,
+				E3CE41071C57900C00DA3726 /* QuartzCore.framework */,
+				E3CE41051C57900500DA3726 /* CoreLocation.framework */,
+				E3CE41031C578FFB00DA3726 /* CoreGraphics.framework */,
+				E3CE41011C578FF300DA3726 /* CFNetwork.framework */,
+				E3CE40FF1C578FEC00DA3726 /* AudioToolbox.framework */,
+				E3CE40FB1C578FC900DA3726 /* Bolts.framework */,
+				E3CE40FC1C578FC900DA3726 /* Parse.framework */,
 				C69874481BEF95E400A72394 /* libxml2.2.tbd */,
 				C69874491BEF95E400A72394 /* libxml2.tbd */,
 				C60CF2DF1BCAE190000F53D6 /* ExternalAccessory.framework */,
@@ -452,6 +500,10 @@
 				CODE_SIGN_ENTITLEMENTS = KuGpa/KuGpa.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KuGpa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -588,6 +640,10 @@
 				CODE_SIGN_ENTITLEMENTS = KuGpa/KuGpa.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KuGpa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -607,6 +663,10 @@
 				CODE_SIGN_ENTITLEMENTS = KuGpa/KuGpa.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KuGpa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

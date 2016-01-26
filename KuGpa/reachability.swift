@@ -224,7 +224,7 @@ public class Reachability {
         
     }
     
-    class func dataParsingForProgram(data : NSData, plannedOrconfirmed: Bool ){
+    class func dataParsingForProgram(data : NSData ){
         
         var listOfProgram = [Lecture]()
         
@@ -339,14 +339,178 @@ public class Reachability {
             s++
         }
         
-        if(plannedOrconfirmed){
+       
             planned = listOfProgram
-        }else{
-            print("Regular")
-            confirmed = listOfProgram
-        }
+      
     }
     
+    class func dataParsingForConfirmed(data : NSData ){
+        
+        var listOfProgram = [Lecture]()
+        
+        let html = NSString(data: data, encoding: NSUTF8StringEncoding)
+        
+        let doc = NDHpple(HTMLData: html! as String)
+        
+        var i: Bool = true
+        var s: Int = 0
+        var lec: Int = 0
+        var classType = ""
+        var skip = false
+        
+        while(i) {
+            
+            i=false;
+            
+            for node in doc.searchWithXPathQuery("//span[@id='MTG_COMP$\(s)']")! {
+               
+                if node.text != "" {
+                    
+                   
+                    i=true;
+                    classType = node.text!
+                    let firstChar = classType.substringToIndex(classType.startIndex.advancedBy(1))
+                    
+                   
+                    if classType == "Lecture" {
+                        
+                        classType =  "Lec"
+                        
+                        for node in doc.searchWithXPathQuery("//div[@id='win0divDERIVED_REGFRM1_DESCR20$\(lec)']")! {
+                        
+                            
+                            if node.text != "" {
+                            
+                                
+                                
+                                let name =  node.children![0].children![1].children![0].children![0].content!
+
+                                var lecture = Lecture()
+                                
+                                lecture.name = name.substringToIndex(name.startIndex.advancedBy(8))
+                                
+                                listOfProgram.append(lecture)
+                            }
+                            
+                        }
+                        lec++
+                        
+                    }else if firstChar ==  "P"  {
+                        classType =  "PS"
+                    }else if firstChar ==  "D" {
+                        classType =  "DS"
+                    }else if firstChar ==  "L" {
+                        classType =  "LAB"
+                    }else{
+                        
+                    }
+                }
+            }
+            
+            
+            for node in doc.searchWithXPathQuery("//span[@id='MTG_SCHED$\(s)']")! {
+                
+                if node.text != "" {
+                    
+                    i=true;
+                    
+                    let dateInfo = node.text!
+                    var start = 0.0
+                    var end = 0.0
+                    let doubleDot : Character = ":"
+                    let bosluk : Character = " "
+                    var days = ""
+                    
+                    if dateInfo != "TBA" {
+                   
+                    days = dateInfo.substringToIndex((dateInfo.characters.indexOf(bosluk))!)
+                    let index1 = dateInfo.characters.indexOf(doubleDot)!
+                    let index2 = dateInfo.substringFromIndex(index1.advancedBy(1)).characters.indexOf(doubleDot)!
+                    
+                    start = Double(dateInfo.substringWithRange(Range<String.Index>(start: index1.advancedBy(-2), end: index1)) + "." + dateInfo.substringWithRange(Range<String.Index>(start: index1.advancedBy(1), end: index1.advancedBy(3) )))!
+                    
+                
+                    
+                    let secondPart = dateInfo.substringFromIndex(index1.advancedBy(1));
+                    
+                    end = Double(secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(-2), end: index2)) + "." + secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(1), end: index2.advancedBy(3) )))!
+                        
+                        if classType ==  "Lec"{
+                            
+                            listOfProgram[lec-1].lecStart = start
+                            listOfProgram[lec-1].lecEnd = end
+                            listOfProgram[lec-1].lecDays = days
+                            
+                        }else if classType ==  "PS"  {
+                            listOfProgram[lec-1].psStart = start
+                            listOfProgram[lec-1].psEnd = end
+                            listOfProgram[lec-1].psDays = days
+                            
+                        }else if classType ==  "DS" {
+                            listOfProgram[lec-1].dsStart = start
+                            listOfProgram[lec-1].dsEnd = end
+                            listOfProgram[lec-1].dsDays = days
+                            
+                        }else if classType ==  "LAB" {
+                            listOfProgram[lec-1].labStart = start
+                            listOfProgram[lec-1].labEnd = end
+                            listOfProgram[lec-1].labDays = days
+                        }else {
+                            
+                        }
+                    
+                    }else {
+                        
+                        skip = true
+                    }
+                    
+                   
+                }
+                
+                
+            }
+            
+            for node in doc.searchWithXPathQuery("//span[@id='MTG_LOC$\(s)']")! {
+                
+                 if node.text != "" {
+                    
+                    let classname = node.text!
+                    
+                    if classType ==  "Lec"{
+                        
+                        listOfProgram[lec-1].location = classname
+                      
+                        
+                    }else if classType ==  "PS"  {
+                        
+                        listOfProgram[lec-1].psLocation = classname
+                        
+                    }else if classType ==  "DS" {
+                        listOfProgram[lec-1].dsLocation = classname
+                        
+                        
+                    }else if classType ==  "LAB" {
+                        listOfProgram[lec-1].labLocation = classname
+                        
+                    }else {
+                        
+                    }
+                
+                    
+                 }
+                
+                
+            }
+
+            
+            s++
+        }
+        
+            confirmed = listOfProgram
+        
+    }
+    
+
     class func printPlanned(){
         
         for thing in planned {
@@ -664,6 +828,58 @@ public class Reachability {
         
     }
     
+    class func ToJson(Program: [Lecture]) -> String {
+        
+        var Json = "{"
+            
+            for  var i=0; i<Program.count; i++ {
+                
+                Json = Json + "\"" + String(i) + "\": {"
+                
+                Json = Json + "\"name\":\"" + Program[i].name + "\","
+                
+                Json = Json + "\"location\":\"" + Program[i].location + "\","
+                
+                Json = Json + "\"lecStart\":\"" + String(Program[i].lecStart) + "\","
+                
+                Json = Json + "\"lecEnd\":\"" + String(Program[i].lecEnd) + "\","
+                
+                Json = Json + "\"lecDays\":\"" + Program[i].lecDays + "\","
+                
+                Json = Json + "\"psDays\":\"" + Program[i].psDays + "\","
+                
+                Json = Json + "\"dsDays\":\"" + Program[i].dsDays + "\","
+                
+                Json = Json + "\"psStart\":\"" + String(Program[i].psStart) + "\","
+                
+                Json = Json + "\"psEnd\":\"" + String(Program[i].psEnd) + "\","
+                
+                Json = Json + "\"psLocation\":\"" + Program[i].psLocation + "\","
+                
+                Json = Json + "\"dsStart\":\"" + String(Program[i].dsStart) + "\","
+                
+                Json = Json + "\"dsEnd\":\"" + String(Program[i].dsEnd) + "\","
+                
+                Json = Json + "\"dsLocation\":\"" + Program[i].dsLocation + "\","
+               
+                Json = Json + "\"labStart\":\"" + String(Program[i].labStart) + "\","
+                
+                Json = Json + "\"labEnd\":\"" + String(Program[i].labEnd) + "\","
+                
+                Json = Json + "\"labLocation\":\"" + Program[i].labLocation + "\","
+                
+                Json = Json + "\"indexInLectures\":\"" + String(Program[i].indexInLectures) + "\"},"
+                
+            }
+    
+        
+        Json.removeAtIndex(Json.endIndex.predecessor())
+        
+        Json = Json + "}"
+        
+        return Json
+        
+    }
     
     
     

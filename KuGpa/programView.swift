@@ -8,11 +8,11 @@
 
 import UIKit
 import Foundation
+import Parse
 
-var program = [[String]]()
 var LectureViews = [[UILabel]]()
 var updated = false;
-var isPlanned = true;
+var isPlanned = false;
 var becauseRotation = false;
 var statusBarHeight = CGFloat ()
 var oocolor = mainStoryBoardColo
@@ -205,7 +205,7 @@ var ActivityIndicator = UIActivityIndicatorView()
         
         if(becauseRotation) {
             size.height -=  statusBarHeight
-            print(statusBarHeight)
+            
         }
         
         becauseRotation = false
@@ -434,9 +434,12 @@ var ActivityIndicator = UIActivityIndicatorView()
 //                                print(error.localizedDescription)
 //                            }
 
-                            Reachability.dataParsingForProgram( data! ,plannedOrconfirmed: true)
+                            Reachability.dataParsingForProgram( data! )
                             
-                           
+                            let USER = PFUser.currentUser()
+                            
+                            USER!.setObject( Reachability.ToJson(planned), forKey: "planned" )
+                            USER?.saveInBackground()
                             
                             self.putCoursesToTable(planned)
                             LectureViews[0][0].text = "Planned"
@@ -478,7 +481,12 @@ var ActivityIndicator = UIActivityIndicatorView()
                         
                         dispatch_async(dispatch_get_main_queue(), {
                             
-                            Reachability.dataParsingForProgram(data!,plannedOrconfirmed: false)
+                            Reachability.dataParsingForConfirmed(data!)
+                           
+                            let USER = PFUser.currentUser()
+                            USER!.setObject( Reachability.ToJson(confirmed) , forKey: "confirmed" )
+                            USER!.saveInBackground();
+                          
                         
                             self.putCoursesToTable(confirmed)
                             if UIDevice.currentDevice().orientation.isLandscape.boolValue {
@@ -648,7 +656,8 @@ var ActivityIndicator = UIActivityIndicatorView()
                 
                 
                 LectureViews[index[2]][index[0]].attributedText = firstLine
-                print(index, firstLine)
+                
+             
                 
                 if index[3] != 0 {
                     

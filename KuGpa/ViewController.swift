@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import Parse
 var name = "" as NSString
 var pass = "" as NSString
+var isUploaded = false
 
 class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDelegate{
    
@@ -83,6 +84,8 @@ class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDe
                     }
                     newtask.resume()
                     
+                   
+                    
                 })
             }
             
@@ -108,8 +111,62 @@ class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDe
     
     func AfterCalculation(){
         
-        self.activityInd.stopAnimating()
-        self.performSegueWithIdentifier("Term", sender: self)
+        let newUser = PFUser()
+        
+        newUser.username = name as String
+        newUser.password = "respectforsecurity"
+        newUser.email = (name as String) + "@ku.edu.tr"
+        newUser.setObject(gpa, forKey:"gpa")
+        newUser.setObject(credit, forKey: "credit")
+        newUser.setObject(Reachability.ToJson(), forKey: "records")
+        
+        newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
+        
+            if ((error) != nil) {
+                
+                if error?.code == 202 {
+                   
+                    PFUser.logInWithUsernameInBackground(name as String, password: "respectforsecurity", block: { (USER, ERROR) -> Void in
+                        
+                       
+                        if ((USER) != nil) {
+                         
+                                USER!.setObject(gpa, forKey:"gpa")
+                                USER!.setObject(credit, forKey: "credit")
+                                USER!.setObject(Reachability.ToJson(), forKey: "records")
+                                USER!.saveInBackground()
+                           
+                            isUploaded = true ;
+                            self.activityInd.stopAnimating()
+                            self.performSegueWithIdentifier("Term", sender: self)
+                            
+                        } else {
+                            
+                            let alertController = UIAlertController(title: "Connection Error", message:
+                                "Please sign in again!", preferredStyle: UIAlertControllerStyle.Alert)
+                            alertController.addAction(UIAlertAction(title: "Okey", style: UIAlertActionStyle.Default,handler: nil))
+                            
+                            self.presentViewController(alertController, animated: true, completion: nil)
+                            
+                            self.click.hidden = false
+                            self.activityInd.hidden = true
+                        }
+                    })
+                }
+               
+                
+            } else {
+               
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    isUploaded = true ;
+                    self.activityInd.stopAnimating()
+                    self.performSegueWithIdentifier("Term", sender: self)
+                  
+                })
+            }
+        })
+        
+    
     }
 
     

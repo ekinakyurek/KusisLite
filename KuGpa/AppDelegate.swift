@@ -6,6 +6,8 @@
 //  Copyright © 2015 Mellon App All rights reserved.
 //
 import UIKit
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
+        Parse.enableLocalDatastore()
+    Parse.setApplicationId("h0JFeBewbePQrRx7fzr0p6IHwAK97i6FCMGlEwVQ",
+            clientKey: "F1rghgcG4n5vGM3trTQS7DydQXRLOQYZENzD1B22")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
         return true
     }
 

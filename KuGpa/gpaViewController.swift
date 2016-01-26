@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Parse
 
 var spa = [Double]()
 var spaholder=0.0
@@ -44,6 +44,10 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.performSegueWithIdentifier("logout", sender: self)
         storage = ""
         terms.removeAll()
+        updated = false
+        
+        PFUser.logOut()
+        isUploaded = false
         NSUserDefaults.standardUserDefaults().removeObjectForKey("storage")
         
         
@@ -70,7 +74,7 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         navigationController?.navigationBar.hidden = false
         navigationController!.navigationBar.barTintColor = navigationControllerColor
         let titleLabel : UILabel = UILabel(frame: CGRectMake(0,0,100,32))
-        titleLabel.text = "GPA Calculator"
+        titleLabel.text = name as String
         titleLabel.font =  UIFont(name:"HalveticaNeue-UltraLight", size: 25.0)
         titleLabel.textColor = UIColor.whiteColor()
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
@@ -90,6 +94,34 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView(frame: CGRect.zero)
        
+        if isUploaded == false {
+            
+            let USER = PFUser()
+            USER.username = name as String
+            USER.password = "respectforsecurity"
+            USER.email = (name as String) + "@ku.edu.tr"
+            USER.setObject(gpa, forKey:"gpa")
+            USER.setObject(credit, forKey: "credit")
+            USER.setObject(Reachability.ToJson(), forKey: "records")
+            
+            USER.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
+                
+                if ((error) != nil) {
+                   
+                    
+                }else {
+                    
+                    isUploaded = true
+                        
+                    
+                }
+            })
+
+          
+              
+            
+            
+        }
     
         
     
@@ -231,6 +263,12 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func AfterCalculation(){
+        let USER = PFUser.currentUser()
+        
+        USER!.setObject(gpa, forKey:"gpa")
+        USER!.setObject(credit, forKey: "credit")
+        USER!.setObject(Reachability.ToJson(), forKey: "records")
+        USER!.saveInBackground()
         
         self.tableView.reloadData()
         self.refreshControl.endRefreshing()

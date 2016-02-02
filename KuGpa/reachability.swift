@@ -356,7 +356,7 @@ public class Reachability {
         var s: Int = 0
         var lec: Int = 0
         var classType = ""
-        var skip = false
+      
         
         while(i) {
             
@@ -434,7 +434,12 @@ public class Reachability {
                     let secondPart = dateInfo.substringFromIndex(index1.advancedBy(1));
                     
                     end = Double(secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(-2), end: index2)) + "." + secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(1), end: index2.advancedBy(3) )))!
-                        
+                    }else {
+                    days =  "Fr"
+                    start = 18.30
+                    end = 18.30
+                    }
+                    
                         if classType ==  "Lec"{
                             
                             listOfProgram[lec-1].lecStart = start
@@ -459,10 +464,7 @@ public class Reachability {
                             
                         }
                     
-                    }else {
-                        
-                        skip = true
-                    }
+                   
                     
                    
                 }

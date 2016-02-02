@@ -119,6 +119,7 @@ class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDe
         newUser.setObject(gpa, forKey:"gpa")
         newUser.setObject(credit, forKey: "credit")
         newUser.setObject(Reachability.ToJson(), forKey: "records")
+      
         
         newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
         

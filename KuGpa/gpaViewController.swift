@@ -44,8 +44,8 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.performSegueWithIdentifier("logout", sender: self)
         storage = ""
         terms.removeAll()
-        updated = false
         
+        updated = false
         PFUser.logOut()
         isUploaded = false
         NSUserDefaults.standardUserDefaults().removeObjectForKey("storage")
@@ -73,7 +73,7 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         navigationController?.navigationBar.hidden = false
         navigationController!.navigationBar.barTintColor = navigationControllerColor
-        let titleLabel : UILabel = UILabel(frame: CGRectMake(0,0,100,32))
+        let titleLabel : UILabel = UILabel(frame: CGRectMake(0,0,50,32))
         titleLabel.text = name as String
         titleLabel.font =  UIFont(name:"HalveticaNeue-UltraLight", size: 25.0)
         titleLabel.textColor = UIColor.whiteColor()
@@ -265,10 +265,15 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func AfterCalculation(){
         let USER = PFUser.currentUser()
         
-        USER!.setObject(gpa, forKey:"gpa")
-        USER!.setObject(credit, forKey: "credit")
-        USER!.setObject(Reachability.ToJson(), forKey: "records")
-        USER!.saveInBackground()
+        let currentUser = PFUser.currentUser()?.username
+        
+        if currentUser != nil {
+            USER!.setObject(gpa, forKey:"gpa")
+            USER!.setObject(credit, forKey: "credit")
+            USER!.setObject(Reachability.ToJson(), forKey: "records")
+            USER!.saveInBackground()
+        }
+  
         
         self.tableView.reloadData()
         self.refreshControl.endRefreshing()

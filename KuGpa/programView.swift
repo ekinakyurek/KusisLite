@@ -400,11 +400,9 @@ var ActivityIndicator = UIActivityIndicatorView()
         
     {
         
-        planned.removeAll()
         
         if Reachability.isConnectedToNetwork(){
-            
-            let request = Reachability.PrepareLoginRequest()
+                        let request = Reachability.PrepareLoginRequest()
             
             let session = NSURLSession.sharedSession()
             
@@ -417,6 +415,10 @@ var ActivityIndicator = UIActivityIndicatorView()
                     let newtask = session.dataTaskWithRequest(newrequest){ (data, repsonse, error) -> Void in
                         
                         dispatch_async(dispatch_get_main_queue(), {
+                            
+                            planned.removeAll()
+                            
+
 //                            var mytext = NSData()
 //                            var path = NSURL()
 //                            
@@ -437,9 +439,17 @@ var ActivityIndicator = UIActivityIndicatorView()
                             Reachability.dataParsingForProgram( data! )
                             
                             let USER = PFUser.currentUser()
+                            if(USER != nil ) {
                             
+                            let currentuser = PFUser.currentUser()?.username
+                            
+                        
+                            if currentuser != ""  && planned.count != 0  {
                             USER!.setObject( Reachability.ToJson(planned), forKey: "planned" )
                             USER?.saveInBackground()
+                            }
+                                
+                            }
                             
                             self.putCoursesToTable(planned)
                             LectureViews[0][0].text = "Planned"
@@ -455,7 +465,10 @@ var ActivityIndicator = UIActivityIndicatorView()
             
             task.resume()
         }else{
-            //self.AlertConnection()
+            self.putCoursesToTable(confirmed)
+            LectureViews[0][0].text = "confirmed"
+            self.ActivityIndicator.stopAnimating()
+            LectureViews[0][0].userInteractionEnabled = true
         }
         
     }
@@ -463,9 +476,11 @@ var ActivityIndicator = UIActivityIndicatorView()
         
     {
         
-        confirmed.removeAll()
+     
         
         if Reachability.isConnectedToNetwork(){
+            
+        
             
             let request = Reachability.PrepareLoginRequest()
             
@@ -481,11 +496,18 @@ var ActivityIndicator = UIActivityIndicatorView()
                         
                         dispatch_async(dispatch_get_main_queue(), {
                             
+                            confirmed.removeAll()
+                            
                             Reachability.dataParsingForConfirmed(data!)
                            
+                            
+                            
                             let USER = PFUser.currentUser()
+                            
+                            if(USER != nil && USER?.username != "" && confirmed.count != 0 ) {
                             USER!.setObject( Reachability.ToJson(confirmed) , forKey: "confirmed" )
                             USER!.saveInBackground();
+                            }
                           
                         
                             self.putCoursesToTable(confirmed)
@@ -510,7 +532,10 @@ var ActivityIndicator = UIActivityIndicatorView()
             
             task.resume()
         }else{
-            //self.AlertConnection()
+            self.putCoursesToTable(planned)
+            LectureViews[0][0].text = "planned"
+            self.ActivityIndicator.stopAnimating()
+            LectureViews[0][0].userInteractionEnabled = true
         }
         
     }
@@ -678,6 +703,7 @@ var ActivityIndicator = UIActivityIndicatorView()
             
         
         }
+        
         updated = true
        
         let parent: UIView = self.view.superview!

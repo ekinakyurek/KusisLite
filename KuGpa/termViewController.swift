@@ -19,22 +19,22 @@ class termViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tabBarController?.delegate = self
         
-        let titleLabel : UILabel = UILabel(frame: CGRectMake(0,0,100,32))
+        let titleLabel : UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 100,height: 32))
         titleLabel.text = terms[indexofTerm][0].term
         titleLabel.font =  UIFont(name:"HalveticaNeue-UltraLight", size: 25.0)
-        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.textColor = UIColor.white
        
         self.navigationItem.titleView = titleLabel
         
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.backgroundColor = UIColor.whiteColor()
+        tableView.backgroundColor = UIColor.white
         
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
        
     }
@@ -45,28 +45,28 @@ class termViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return terms[indexofTerm].count+1
     }
     
     
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
      
-        if viewController.title == "enrollments" && !UIDevice.currentDevice().orientation.isLandscape.boolValue  {
+        if viewController.title == "enrollments" && !UIDevice.current.orientation.isLandscape  {
             
-            let value = UIInterfaceOrientation.LandscapeRight.rawValue
+            let value = UIInterfaceOrientation.landscapeRight.rawValue
             
-            UIDevice.currentDevice().setValue(value, forKey: "orientation")
+            UIDevice.current.setValue(value, forKey: "orientation")
             
         }
         
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         var cell: customCell
         
-        cell=tableView.dequeueReusableCellWithIdentifier("cell",forIndexPath:indexPath) as! customCell
+        cell=tableView.dequeueReusableCell(withIdentifier: "cell",for:indexPath) as! customCell
      
   
         cell.title.font = UIFont(name: "Robot-Light", size: 11.0)
@@ -75,8 +75,8 @@ class termViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.plus.tag = indexPath.row+100
         cell.minus.tag = 200+indexPath.row
         cell.textField.tag = 300+indexPath.row
-        cell.plus.addTarget(self, action: "plus:", forControlEvents: .TouchUpInside)
-        cell.minus.addTarget(self, action:"minus:", forControlEvents: .TouchUpInside)
+        cell.plus.addTarget(self, action: #selector(termViewController.plus(_:)), for: .touchUpInside)
+        cell.minus.addTarget(self, action:#selector(termViewController.minus(_:)), for: .touchUpInside)
         
         
         
@@ -113,7 +113,7 @@ class termViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 
     
-    func plus(sender: UIButton){
+    func plus(_ sender: UIButton){
         
     switch terms[indexofTerm][sender.tag-101].grade{
             
@@ -170,7 +170,7 @@ class termViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    func minus(sender: UIButton){
+    func minus(_ sender: UIButton){
     
     switch terms[indexofTerm][sender.tag-201].grade{
         case "A+":

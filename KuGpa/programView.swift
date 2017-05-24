@@ -28,13 +28,13 @@ var ActivityIndicator = UIActivityIndicatorView()
     
         if(LectureViews.capacity == 0){
             for _ in 0...7 {
-                LectureViews.append(Array(count:8, repeatedValue:UILabel()))
+                LectureViews.append(Array(repeating: UILabel(), count: 8))
             }
             
         }
         
         
-        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+        if UIDevice.current.orientation.isLandscape {
             createMyTableLandscape()
         }else{
             createMyTablePortrait()
@@ -48,7 +48,7 @@ var ActivityIndicator = UIActivityIndicatorView()
         
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
         
         if isPlanned && updated {
@@ -56,13 +56,13 @@ var ActivityIndicator = UIActivityIndicatorView()
             putCoursesToTable(planned)
             LectureViews[0][0].text = "Planned"
             self.ActivityIndicator.stopAnimating()
-            LectureViews[0][0].userInteractionEnabled = true
+            LectureViews[0][0].isUserInteractionEnabled = true
         }else if !isPlanned && updated {
              becauseRotation = true
             putCoursesToTable(confirmed)
             LectureViews[0][0].text = "Confirm."
             self.ActivityIndicator.stopAnimating()
-            LectureViews[0][0].userInteractionEnabled = true
+            LectureViews[0][0].isUserInteractionEnabled = true
    
         }
         
@@ -76,10 +76,10 @@ var ActivityIndicator = UIActivityIndicatorView()
     func createMyTableLandscape(){
         
         ActivityIndicator.startAnimating()
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         
         var size = get_visible_size()
-        size.height += self.tabBarController!.tabBar.frame.size.height + UIApplication.sharedApplication().statusBarFrame.height
+        size.height += self.tabBarController!.tabBar.frame.size.height + UIApplication.shared.statusBarFrame.height
         size.width -=  self.tabBarController!.tabBar.frame.size.height
         
         let firstRow = (size.width / 6.0) * 0.8
@@ -90,9 +90,9 @@ var ActivityIndicator = UIActivityIndicatorView()
         
         
         var cells = [[ CGRect ]]()
-        cells.append(Array(count:8, repeatedValue:CGRect()))
+        cells.append(Array(repeating: CGRect(), count: 8))
         
-        cells[0][0] = CGRectMake(0.0,0.0,firstColumn,firstRow);
+        cells[0][0] = CGRect(x: 0.0,y: 0.0,width: firstColumn,height: firstRow);
        
         
       
@@ -100,17 +100,17 @@ var ActivityIndicator = UIActivityIndicatorView()
         let label = UILabel(frame: cells[0][0]);
         
         
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         if isPlanned {
             label.backgroundColor = navigationControllerColor
         }else{
             label.backgroundColor = oocolor
             
         }
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         label.numberOfLines = 0
         label.font = UIFont(name: "Roboto-Regular", size: 13)
-        let tap = UITapGestureRecognizer(target: self, action: Selector("myMethodToHandleTap:"))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(programView.myMethodToHandleTap(_:)))
         tap.numberOfTapsRequired = 1
         LectureViews[0][0] = label;
         ActivityIndicator.center = CGPoint(x: firstColumn/2, y: firstRow/2)
@@ -119,9 +119,9 @@ var ActivityIndicator = UIActivityIndicatorView()
   
         
         for time in 1...7 {
-            cells[0][time] = CGRectMake(CGFloat(time-1)*columnStep + firstColumn,0.0,columnStep,firstRow);
+            cells[0][time] = CGRect(x: CGFloat(time-1)*columnStep + firstColumn,y: 0.0,width: columnStep,height: firstRow);
             let label = UILabel(frame: cells[0][time]);
-            label.textAlignment = NSTextAlignment.Center;
+            label.textAlignment = NSTextAlignment.center;
             label.backgroundColor = greenButtonColor
             label.numberOfLines = 1
     
@@ -137,7 +137,7 @@ var ActivityIndicator = UIActivityIndicatorView()
             let finish = start + 1.15
             
             label.text = String(format: "%.2f", start) + " - " + String(format: "%.2f", finish )
-            label.textColor = UIColor.whiteColor()
+            label.textColor = UIColor.white
             label.font = UIFont(name: "Roboto-Regular", size: 13)
             label.adjustsFontSizeToFitWidth = true
             LectureViews[0][time] = label
@@ -145,12 +145,12 @@ var ActivityIndicator = UIActivityIndicatorView()
         }
         
         for i in 1...5 {
-            cells.append(Array(count:8, repeatedValue:CGRect()))
+            cells.append(Array(repeating: CGRect(), count: 8))
          
             for j in 1...7{
-                cells[i][j] = CGRectMake(CGFloat(j-1)*columnStep + firstColumn,firstRow + CGFloat(i-1)*rowStep,columnStep,rowStep);
+                cells[i][j] = CGRect(x: CGFloat(j-1)*columnStep + firstColumn,y: firstRow + CGFloat(i-1)*rowStep,width: columnStep,height: rowStep);
                 let label = UILabel(frame: cells[i][j]);
-                label.textAlignment = NSTextAlignment.Center;
+                label.textAlignment = NSTextAlignment.center;
                 label.backgroundColor = colorPicker(i, column: j)
                 label.attributedText = LectureViews[i][j].attributedText
                 label.numberOfLines = 0
@@ -164,9 +164,9 @@ var ActivityIndicator = UIActivityIndicatorView()
         }
         for day in 1...5{
             
-            cells[day][0] = CGRectMake(0,CGFloat(day-1)*rowStep + firstRow,firstColumn,rowStep);
+            cells[day][0] = CGRect(x: 0,y: CGFloat(day-1)*rowStep + firstRow,width: firstColumn,height: rowStep);
             let label = UILabel(frame: cells[day][0]);
-            label.textAlignment = NSTextAlignment.Center;
+            label.textAlignment = NSTextAlignment.center;
             label.backgroundColor = greenButtonColor
             label.numberOfLines = 0
             var Sday = ""
@@ -181,7 +181,7 @@ var ActivityIndicator = UIActivityIndicatorView()
             }
             label.font = UIFont(name: "Roboto-Regular", size: 14)
             label.text = Sday
-            label.textColor = UIColor.whiteColor()
+            label.textColor = UIColor.white
             
             LectureViews[day][0] = label
             self.view.addSubview(LectureViews[day][0])
@@ -191,7 +191,7 @@ var ActivityIndicator = UIActivityIndicatorView()
         LectureViews[0][0].layer.shadowOffset = CGSize(width: 2, height: 2)
         LectureViews[0][0].layer.shadowOpacity = 0.4
         LectureViews[0][0].layer.shadowRadius = 4
-        LectureViews[0][0].layer.shadowColor  = UIColor.whiteColor().CGColor
+        LectureViews[0][0].layer.shadowColor  = UIColor.white.cgColor
         self.view.addSubview(LectureViews[0][0])
         
     }
@@ -199,7 +199,7 @@ var ActivityIndicator = UIActivityIndicatorView()
     func createMyTablePortrait(){
         
         ActivityIndicator.startAnimating()
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         
         var size = get_visible_size()
         
@@ -218,11 +218,11 @@ var ActivityIndicator = UIActivityIndicatorView()
         let columnStep = (size.width-firstColumn)/5.0
         
         var cells = [[ CGRect ]]()
-        cells.append(Array(count: 6, repeatedValue:CGRect()))
+        cells.append(Array(repeating: CGRect(), count: 6))
         
-        cells[0][0] = CGRectMake(0,statusBarHeight,firstColumn,firstRow);
+        cells[0][0] = CGRect(x: 0,y: statusBarHeight,width: firstColumn,height: firstRow);
         let label = UILabel(frame: cells[0][0]);
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         if isPlanned {
             label.backgroundColor = navigationControllerColor
         }else{
@@ -230,11 +230,11 @@ var ActivityIndicator = UIActivityIndicatorView()
             
         }
         
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont(name: "Roboto-Regular", size: 13)
-        let tap = UITapGestureRecognizer(target: self, action: Selector("myMethodToHandleTap:"))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(programView.myMethodToHandleTap(_:)))
         tap.numberOfTapsRequired = 1
         LectureViews[0][0] = label;
         ActivityIndicator.center = CGPoint(x: firstColumn/2, y: firstRow/2)
@@ -246,12 +246,12 @@ var ActivityIndicator = UIActivityIndicatorView()
         
         for time in 1...7 {
             
-            cells.append(Array(count: 6, repeatedValue:CGRect()))
+            cells.append(Array(repeating: CGRect(), count: 6))
             
-            cells[time][0] = CGRectMake(0.0,statusBarHeight + CGFloat(time-1) * rowStep + firstRow ,firstColumn,rowStep);
+            cells[time][0] = CGRect(x: 0.0,y: statusBarHeight + CGFloat(time-1) * rowStep + firstRow ,width: firstColumn,height: rowStep);
             
             let label = UILabel(frame: cells[time][0]);
-            label.textAlignment = NSTextAlignment.Center;
+            label.textAlignment = NSTextAlignment.center;
             label.backgroundColor = greenButtonColor
             label.numberOfLines = 0
             var start = 8.50 + 1.50 * Double((time-1))
@@ -265,7 +265,7 @@ var ActivityIndicator = UIActivityIndicatorView()
             let finish = start + 1.15
             
             label.text = String(format: "%.2f", start) + "\n" + String(format: "%.2f", finish )
-            label.textColor = UIColor.whiteColor()
+            label.textColor = UIColor.white
             label.font = UIFont(name: "Roboto-Regular", size: 12)
             
             
@@ -275,9 +275,9 @@ var ActivityIndicator = UIActivityIndicatorView()
         
         for i in 1...7 {
             for j in 1...5{
-                cells[i][j] = CGRectMake(CGFloat(j-1)*columnStep + firstColumn,statusBarHeight + CGFloat(i-1)*rowStep + firstRow, columnStep,rowStep);
+                cells[i][j] = CGRect(x: CGFloat(j-1)*columnStep + firstColumn,y: statusBarHeight + CGFloat(i-1)*rowStep + firstRow, width: columnStep,height: rowStep);
                 let label = UILabel(frame: cells[i][j]);
-                label.textAlignment = NSTextAlignment.Center;
+                label.textAlignment = NSTextAlignment.center;
                 label.backgroundColor = colorPicker(j, column: i)
                 label.attributedText = LectureViews[j][i].attributedText
                 label.numberOfLines = 0
@@ -293,9 +293,9 @@ var ActivityIndicator = UIActivityIndicatorView()
         }
         for day in 1...5{
             
-            cells[0][day] = CGRectMake(CGFloat(day-1)*columnStep + firstColumn,statusBarHeight,columnStep,firstRow);
+            cells[0][day] = CGRect(x: CGFloat(day-1)*columnStep + firstColumn,y: statusBarHeight,width: columnStep,height: firstRow);
             let label = UILabel(frame: cells[0][day]);
-            label.textAlignment = NSTextAlignment.Center;
+            label.textAlignment = NSTextAlignment.center;
             label.backgroundColor = greenButtonColor
             label.numberOfLines = 0
             var Sday = ""
@@ -311,7 +311,7 @@ var ActivityIndicator = UIActivityIndicatorView()
             }
             label.font = UIFont(name: "Roboto-Regular", size: 14)
             label.text = Sday
-            label.textColor = UIColor.whiteColor()
+            label.textColor = UIColor.white
            
         
             LectureViews[day][0] = label
@@ -321,17 +321,17 @@ var ActivityIndicator = UIActivityIndicatorView()
         LectureViews[0][0].layer.shadowOffset = CGSize(width: 10, height: 10)
         LectureViews[0][0].layer.shadowOpacity = 0.5
         LectureViews[0][0].layer.shadowRadius = 20
-        LectureViews[0][0].layer.shadowColor  = UIColor.whiteColor().CGColor
+        LectureViews[0][0].layer.shadowColor  = UIColor.white.cgColor
   
       
       
         
     }
     
-    func myMethodToHandleTap(sender: UITapGestureRecognizer) {
+    func myMethodToHandleTap(_ sender: UITapGestureRecognizer) {
         
         ActivityIndicator.startAnimating()
-        LectureViews[0][0].userInteractionEnabled = false
+        LectureViews[0][0].isUserInteractionEnabled = false
         
         LectureViews[0][0].text = ""
         
@@ -339,7 +339,7 @@ var ActivityIndicator = UIActivityIndicatorView()
         LectureViews[0][0].layer.shadowOffset = CGSize(width: 2, height: 2)
         LectureViews[0][0].layer.shadowOpacity = 0.4
         LectureViews[0][0].layer.shadowRadius = 7
-        LectureViews[0][0].layer.shadowColor  = UIColor.grayColor().CGColor
+        LectureViews[0][0].layer.shadowColor  = UIColor.gray.cgColor
         
         if sender.view?.backgroundColor == navigationControllerColor {
             getConfirmedProgram()
@@ -358,8 +358,8 @@ var ActivityIndicator = UIActivityIndicatorView()
     
     func get_visible_size() -> CGSize {
    
-    var result = UIScreen.mainScreen().bounds.size;
-    var size = UIScreen.mainScreen().bounds.size;
+    var result = UIScreen.main.bounds.size;
+    var size = UIScreen.main.bounds.size;
     
     if size.height < size.width {
             
@@ -368,11 +368,11 @@ var ActivityIndicator = UIActivityIndicatorView()
     }
   
     
-    size = UIApplication.sharedApplication().statusBarFrame.size;
+    size = UIApplication.shared.statusBarFrame.size;
     result.height -= min(size.width, size.height);
       
     
-    if (self.navigationController?.navigationBarHidden != true) {
+    if (self.navigationController?.isNavigationBarHidden != true) {
     size = self.navigationController!.navigationBar.frame.size;
     result.height -= min(size.width, size.height);
     }
@@ -386,11 +386,11 @@ var ActivityIndicator = UIActivityIndicatorView()
         
     }
     
-    func colorPicker(row: Int, column: Int) -> UIColor {
+    func colorPicker(_ row: Int, column: Int) -> UIColor {
         if row % 2 == 0 {
             return firstCellColor
         }else{
-            return UIColor.whiteColor()
+            return UIColor.white
         }
     }
     
@@ -404,17 +404,17 @@ var ActivityIndicator = UIActivityIndicatorView()
         if Reachability.isConnectedToNetwork(){
                         let request = Reachability.PrepareLoginRequest()
             
-            let session = NSURLSession.sharedSession()
+            let session = URLSession.shared
             
-            let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+            let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     
                     let newrequest = Reachability.PreparePlannedProgramRequest()
                     
-                    let newtask = session.dataTaskWithRequest(newrequest){ (data, repsonse, error) -> Void in
+                    let newtask = session.dataTask(with: newrequest, completionHandler: { (data, repsonse, error) -> Void in
                         
-                        dispatch_async(dispatch_get_main_queue(), {
+                        DispatchQueue.main.async(execute: {
                             
                             planned.removeAll()
                             
@@ -438,10 +438,10 @@ var ActivityIndicator = UIActivityIndicatorView()
 
                             Reachability.dataParsingForProgram( data! )
                             
-                            let USER = PFUser.currentUser()
+                            let USER = PFUser.current()
                             if(USER != nil ) {
                             
-                            let currentuser = PFUser.currentUser()?.username
+                            let currentuser = PFUser.current()?.username
                             
                         
                             if currentuser != ""  && planned.count != 0  {
@@ -454,21 +454,21 @@ var ActivityIndicator = UIActivityIndicatorView()
                             self.putCoursesToTable(planned)
                             LectureViews[0][0].text = "Planned"
                             self.ActivityIndicator.stopAnimating()
-                            LectureViews[0][0].userInteractionEnabled = true
+                            LectureViews[0][0].isUserInteractionEnabled = true
                           
                         })
-                    }
+                    })
                     newtask.resume()
                     
                 })
-            }
+            })
             
             task.resume()
         }else{
             self.putCoursesToTable(confirmed)
             LectureViews[0][0].text = "confirmed"
             self.ActivityIndicator.stopAnimating()
-            LectureViews[0][0].userInteractionEnabled = true
+            LectureViews[0][0].isUserInteractionEnabled = true
         }
         
     }
@@ -484,17 +484,17 @@ var ActivityIndicator = UIActivityIndicatorView()
             
             let request = Reachability.PrepareLoginRequest()
             
-            let session = NSURLSession.sharedSession()
+            let session = URLSession.shared
             
-            let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+            let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     
                     let newrequest = Reachability.PrepareConfirmedProgramRequest()
                     
-                    let newtask = session.dataTaskWithRequest(newrequest){ (data, repsonse, error) -> Void in
+                    let newtask = session.dataTask(with: newrequest, completionHandler: { (data, repsonse, error) -> Void in
                         
-                        dispatch_async(dispatch_get_main_queue(), {
+                        DispatchQueue.main.async(execute: {
                             
                             confirmed.removeAll()
                             
@@ -502,7 +502,7 @@ var ActivityIndicator = UIActivityIndicatorView()
                            
                             
                             
-                            let USER = PFUser.currentUser()
+                            let USER = PFUser.current()
                             
                             if(USER != nil && USER?.username != "" && confirmed.count != 0 ) {
                             USER!.setObject( Reachability.ToJson(confirmed) , forKey: "confirmed" )
@@ -511,36 +511,36 @@ var ActivityIndicator = UIActivityIndicatorView()
                           
                         
                             self.putCoursesToTable(confirmed)
-                            if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+                            if UIDevice.current.orientation.isLandscape {
                             LectureViews[0][0].text = "Confirm."
                             }else{
                             LectureViews[0][0].text = "Conf."
                             }
                             
                             self.ActivityIndicator.stopAnimating()
-                            LectureViews[0][0].userInteractionEnabled = true
+                            LectureViews[0][0].isUserInteractionEnabled = true
                             
                           
                         
                             
                         })
-                    }
+                    })
                     newtask.resume()
                     
                 })
-            }
+            })
             
             task.resume()
         }else{
             self.putCoursesToTable(planned)
             LectureViews[0][0].text = "planned"
             self.ActivityIndicator.stopAnimating()
-            LectureViews[0][0].userInteractionEnabled = true
+            LectureViews[0][0].isUserInteractionEnabled = true
         }
         
     }
     
-    func putCoursesToTable(listOfProgram: [Lecture]){
+    func putCoursesToTable(_ listOfProgram: [Lecture]){
         
         for lectures in LectureViews{
             for lecture in lectures {
@@ -576,10 +576,10 @@ var ActivityIndicator = UIActivityIndicatorView()
                 secondLine = NSMutableAttributedString(string: "\n" + lecture.location, attributes: smallerFontSize)
                 
                 if index[4]==1 {
-                    secondLine.appendAttributedString(yildiz)
+                    secondLine.append(yildiz)
                 }
                 
-                firstLine.appendAttributedString(secondLine)
+                firstLine.append(secondLine)
                 
                  LectureViews[index[2]][index[0]].font = nil
                  LectureViews[index[2]][index[0]].textColor = nil
@@ -609,11 +609,11 @@ var ActivityIndicator = UIActivityIndicatorView()
                 secondLine = NSMutableAttributedString(string: "\(lecture.psLocation)", attributes: smallerFontSize)
                 
                 if index[4]==1 {
-                    secondLine.appendAttributedString(yildiz)
+                    secondLine.append(yildiz)
                 }
                 
                 
-                firstLine.appendAttributedString(secondLine)
+                firstLine.append(secondLine)
                 
                 
                 LectureViews[index[2]][index[0]].attributedText = firstLine
@@ -641,10 +641,10 @@ var ActivityIndicator = UIActivityIndicatorView()
                 secondLine = NSMutableAttributedString(string: "\(lecture.dsLocation)", attributes: smallerFontSize)
                 
                 if index[4]==1 {
-                    secondLine.appendAttributedString(yildiz)
+                    secondLine.append(yildiz)
                 }
                 
-                firstLine.appendAttributedString(secondLine)
+                firstLine.append(secondLine)
                 
                 
                 LectureViews[index[2]][index[0]].attributedText = firstLine
@@ -674,10 +674,10 @@ var ActivityIndicator = UIActivityIndicatorView()
                 secondLine = NSMutableAttributedString(string: "\(lecture.labLocation)", attributes: smallerFontSize)
                 
                 if index[4]==1 {
-                    secondLine.appendAttributedString(yildiz)
+                    secondLine.append(yildiz)
                 }
                 
-                firstLine.appendAttributedString(secondLine)
+                firstLine.append(secondLine)
                 
                 
                 LectureViews[index[2]][index[0]].attributedText = firstLine
@@ -713,7 +713,7 @@ var ActivityIndicator = UIActivityIndicatorView()
         
     }
     
-    func dateToIndex(start: Double, end: Double, days: String) -> [Int]{
+    func dateToIndex(_ start: Double, end: Double, days: String) -> [Int]{
         var i,j : Int
         var t,z: Int
         var yildiz : Int
@@ -773,10 +773,10 @@ var ActivityIndicator = UIActivityIndicatorView()
      return [j,z,i,t,yildiz]
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         navigationController?.hidesBarsOnSwipe = false
-        self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+        self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true
         
         
     }

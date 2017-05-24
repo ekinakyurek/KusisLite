@@ -8,6 +8,42 @@
 import UIKit
 //import Foundation
 import SystemConfiguration
+import Kanna
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 
 // Global Variables
 struct Courses{
@@ -73,20 +109,23 @@ var firstCellColor = UIColor(netHex: 0xECEFF1);
 
 var detailLabelColor = UIColor(netHex: 0x8E8E93)
 
-public class Reachability {
+open class Reachability {
     
    var doc = ""
     
     class func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
         
-        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
-            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
         }
-        var flags = SCNetworkReachabilityFlags.ConnectionAutomatic
-        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
             return false
         }
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
@@ -95,29 +134,33 @@ public class Reachability {
     }
 
     
-    class func PrepareLoginRequest() -> NSMutableURLRequest{
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://kusis.ku.edu.tr/psp/ps/?cmd=login")!)
-        request.HTTPMethod = "POST"
-        let postString = "userid=\(name)&pwd=\(pass)"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+    class func PrepareLoginRequest() -> URLRequest{
+        var request = URLRequest(url: URL(string: "https://kusis.ku.edu.tr/psp/ps/?cmd=login&languageCd=ENG")!)
+
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded;charset=utf-8", forHTTPHeaderField: "Content-Type")
+        var postData = "userid=\(name)".data(using: String.Encoding.utf8)!
+        postData.append("&pwd=\(pass)".data(using: String.Encoding.utf8)!)
+       //request.httpBody = postString.data(using: String.Encoding.utf8)
+        request.httpBody = postData;
         return request
     }
-    func descending (value1: Int, value2: Int) -> Bool {
+    func descending (_ value1: Int, value2: Int) -> Bool {
         return value1 > value2;
     }
     class func sortTerms(){
 
 
-        for(var i=0; i < terms.count-1; i++){
+   
+        for i  in 0..<terms.count-1 {
             
-            for(var j=1; j < terms.count-i; j++){
+            for j in 1..<terms.count-i{
                 
                 let namej = terms[j][0].term as NSString
-                let yearj = Double(namej.substringFromIndex(namej.length-4))! + self.TermNameToDouble(namej.substringToIndex(namej.length-5))
+                let yearj = Double(namej.substring(from: namej.length-4))! + self.TermNameToDouble(namej.substring(to: namej.length-5))
                 
                 let namej1 = terms[j-1][0].term as NSString
-                let yearj1 = Double(namej1.substringFromIndex(namej1.length-4))! + self.TermNameToDouble(namej1.substringToIndex(namej1.length-5))
+                let yearj1 = Double(namej1.substring(from: namej1.length-4))! + self.TermNameToDouble(namej1.substring(to: namej1.length-5))
                 
               //  print(namej1.substringFromIndex(namej1.length-4))
                 if(yearj1 < yearj){
@@ -132,7 +175,7 @@ public class Reachability {
 
         
     }
-    class func TermNameToDouble(name: String) -> Double{
+    class func TermNameToDouble(_ name: String) -> Double{
         var toDouble = 0.0
         if name == "Spring" {
             toDouble = 0.1;
@@ -144,35 +187,35 @@ public class Reachability {
         return toDouble;
     }
     
-    class func PrepareCourseHistoryRequest()  -> NSMutableURLRequest {
+    class func PrepareCourseHistoryRequest()  -> URLRequest {
         
         let coursehistory="https://kusis.ku.edu.tr/psc/ps/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_MY_CRSEHIST.GBL?PORTALPARAM_PTCNAV=HC_SSS_MY_CRSEHIST_GBL&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=CO_EMPLOYEE_SELF_SERVICE&EOPP.SCLabel=Self%20Service&EOPP.SCPTfname=CO_EMPLOYEE_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.HCCC_ACADEMIC_RECORDS.HC_SSS_MY_CRSEHIST_GBL&IsFolder=false&PortalActualURL=https%3a%2f%2fkusis.ku.edu.tr%2fpsc%2fps%2fEMPLOYEE%2fHRMS%2fc%2fSA_LEARNER_SERVICES.SSS_MY_CRSEHIST.GBL&PortalContentURL=https%3a%2f%2fkusis.ku.edu.tr%2fpsc%2fps%2fEMPLOYEE%2fHRMS%2fc%2fSA_LEARNER_SERVICES.SSS_MY_CRSEHIST.GBL&PortalContentProvider=HRMS&PortalCRefLabel=My%20Course%20History&PortalRegistryName=EMPLOYEE&PortalServletURI=https%3a%2f%2fkusis.ku.edu.tr%2fpsp%2fps%2f&PortalURI=https%3a%2f%2fkusis.ku.edu.tr%2fpsc%2fps%2f&PortalHostNode=HRMS&NoCrumbs=yes&PortalKeyStruct=yes"
         
         
-        let newrequest = NSMutableURLRequest(URL: NSURL(string:coursehistory)!)
-        newrequest.HTTPMethod = "GET"
+        var newrequest = URLRequest(url: URL(string:coursehistory)!)
+        newrequest.httpMethod = "GET"
         return newrequest
         
     }
     
-    class func PreparePlannedProgramRequest()  -> NSMutableURLRequest {
+    class func PreparePlannedProgramRequest()  -> URLRequest {
         let program = "https://kusis.ku.edu.tr/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_APT_SCHD_BLDR.GBL?Page=SSR_APT_SCHD_BLDR&Action=A&EMPLID=0031459&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524"
-        let newrequest = NSMutableURLRequest(URL: NSURL(string:program)!)
-        newrequest.HTTPMethod = "GET"
+        var newrequest = URLRequest(url: URL(string:program)!)
+        newrequest.httpMethod = "GET"
         return newrequest
         
     }
 
-    class func PrepareConfirmedProgramRequest()  -> NSMutableURLRequest {
+    class func PrepareConfirmedProgramRequest()  -> URLRequest {
         let program = "https://kusis.ku.edu.tr/psc/ps/EMPLOYEE/HRMS/c/SSR_PROG_ENRL_SS.SSR_SS_MY_CLASSES.GBL?Page=SSR_SS_MY_CLASSES&Action=U&ExactKeys=Y&EMPLID=0031459&INSTITUTION=KOCUN&SSR_APT_INSTANCE=1&SSR_ITEM_ID=00000004524&TargetFrameName="
-        let newrequest = NSMutableURLRequest(URL: NSURL(string:program)!)
-        newrequest.HTTPMethod = "GET"
+        var newrequest = URLRequest(url: URL(string:program)!)
+        newrequest.httpMethod = "GET"
         return newrequest
         
     }
     
     
-    class func ReadHtmlData(data : NSData){
+    class func ReadHtmlData(_ data : Data){
         
                
     }
@@ -183,7 +226,7 @@ public class Reachability {
         
         for thing in Dersler{
             
-            for var i=0; i<tempdersler.count; i++ {
+            for i in 0 ..< tempdersler.count {
                 
                 let something = tempdersler[i]
                 let term1 = thing.term
@@ -201,7 +244,7 @@ public class Reachability {
             }
             if newterm.count>=1{
                 terms.append(newterm)
-                newterm.removeAll(keepCapacity: false)
+                newterm.removeAll(keepingCapacity: false)
                 
             }
             
@@ -210,12 +253,12 @@ public class Reachability {
         
     }
     
-    class func dataCheck(data : NSData)-> Bool {
+    class func dataCheck(_ data : Data)-> Bool {
         
-         let html = NSString(data: data, encoding: NSUTF8StringEncoding)
-         let doc = NDHpple(HTMLData: html! as String)
+         let html = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+         let doc = HTML(html: html! as String, encoding: .utf8)
            
-            if doc.searchWithXPathQuery("/html/head/title")![0].text == "My Course History"{
+            if doc?.xpath("/html/head/title")[0].text == "My Course History"{
             return true
             }else{
             return false
@@ -224,13 +267,13 @@ public class Reachability {
         
     }
     
-    class func dataParsingForProgram(data : NSData ){
+    class func dataParsingForProgram(_ data : Data ){
         
         var listOfProgram = [Lecture]()
         
-        let html = NSString(data: data, encoding: NSUTF8StringEncoding)
+        let html = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
         
-        let doc = NDHpple(HTMLData: html! as String)
+        let doc = HTML(html: html! as String, encoding: .utf8)
         
         var i: Bool = true
         var s: Int = 0
@@ -241,28 +284,28 @@ public class Reachability {
             
             i=false;
             
-            for node in doc.searchWithXPathQuery("//a[@id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$\(s)']")! {
+            for node in (doc?.xpath("//a[@id='SSR_APT_CARTWK3_SSR_CLASSNAME_LONG$\(s)']"))! {
                 
                 if node.text != "" {
                     
                     i=true;
                     classType = node.text!
-                    let firstChar = classType.substringToIndex(classType.startIndex.advancedBy(1))
+                    let firstChar = classType.substring(to: classType.characters.index(classType.startIndex, offsetBy: 1))
                   
                     if firstChar.characters.first >= "0" && firstChar.characters.first  <= "9" {
                        classType =  "Lec"
-                        for node in doc.searchWithXPathQuery("//a[@id='SSR_APT_CARTWK2_DESCR50$\(lec)']")! {
+                        for node in (doc?.xpath("//a[@id='SSR_APT_CARTWK2_DESCR50$\(lec)']"))! {
                          
                           if node.text != "" {
                             let name = node.text!
                           
                             var lecture = Lecture()
-                            lecture.name = name.substringToIndex(name.startIndex.advancedBy(8))
+                            lecture.name = name.substring(to: name.characters.index(name.startIndex, offsetBy: 8))
                             listOfProgram.append(lecture)
                       
                             }
                         }
-                        lec++
+                        lec+=1;
                         
                     }else if firstChar ==  "P"  {
                        classType =  "PS"
@@ -277,11 +320,12 @@ public class Reachability {
             }
         
         
-            for node in doc.searchWithXPathQuery("//span[@id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$\(s)']")! {
+            for node in (doc?.xpath("//span[@id='SSR_APT_CARTWK3_SSR_MTG_SCHED_LONG$\(s)']"))! {
                
                 if node.text != "" {
                     i=true;
-                    var classname = node.children![2].content
+           
+                    var classname = node.xpath("/*")[2].content
                    
                     let dateInfo = node.text!
                     var start = 0.0
@@ -289,20 +333,26 @@ public class Reachability {
                     let doubleDot : Character = ":"
                     let bosluk : Character = " "
                     var days = ""
-                    classname = classname?.substringFromIndex(classname!.startIndex.advancedBy(1))
-                    days = dateInfo.substringToIndex((dateInfo.characters.indexOf(bosluk))!)
-                    let index1 = dateInfo.characters.indexOf(doubleDot)!
-                    let index2 = dateInfo.substringFromIndex(index1.advancedBy(1)).characters.indexOf(doubleDot)!
+                    classname = classname?.substring(from: classname!.characters.index(classname!.startIndex, offsetBy: 1))
+                    days = dateInfo.substring(to: (dateInfo.characters.index(of: bosluk))!)
+                    let index1 = dateInfo.characters.index(of: doubleDot)!
                     
-                    start = Double(dateInfo.substringWithRange(Range<String.Index>(start: index1.advancedBy(-2), end: index1)) + "." + dateInfo.substringWithRange(Range<String.Index>(start: index1.advancedBy(1), end: index1.advancedBy(3) )))!
+                    let index2 = dateInfo.substring(from: dateInfo.index(after:index1)).characters.index(of: doubleDot)!
+                  
+                    start = Double( dateInfo.substring(with: dateInfo.index(index1, offsetBy: -2)..<index1) + "." +
+                                        dateInfo.substring(with: dateInfo.index(index1,offsetBy: 1)..<dateInfo.index(index1, offsetBy:3)))!
                     
-                    let secondPart = dateInfo.substringFromIndex(index1.advancedBy(1));
+                    let secondPart = dateInfo.substring(from: dateInfo.index(index1,  offsetBy: 1))
                     
-                    end = Double(secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(-2), end: index2)) + "." + secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(1), end: index2.advancedBy(3) )))!
                     
-                    if classname!.characters.indexOf(  "-" ) != nil
+                    end = Double( secondPart.substring(with: secondPart.index(index2, offsetBy: -2)..<index2) + "." +
+                        secondPart.substring(with: secondPart.index(index2,offsetBy: 1)..<secondPart.index(index1, offsetBy:3)))!
+                   
+                    
+                    
+                    if classname!.characters.index(  of: "-" ) != nil
                     {
-                    classname = classname?.substringToIndex(classname!.characters.indexOf(  "-" )!)
+                    classname = classname?.substring(to: classname!.characters.index(  of: "-" )!)
                     }
                   
                     if classType ==  "Lec"{
@@ -336,7 +386,7 @@ public class Reachability {
                
             }
                 
-            s++
+            s += 1
         }
         
        
@@ -344,13 +394,12 @@ public class Reachability {
       
     }
     
-    class func dataParsingForConfirmed(data : NSData ){
+    class func dataParsingForConfirmed(_ data : Data ){
         
         var listOfProgram = [Lecture]()
         
-        let html = NSString(data: data, encoding: NSUTF8StringEncoding)
-        
-        let doc = NDHpple(HTMLData: html! as String)
+        let html = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+        let doc = HTML(html: html! as String, encoding: .utf8)
         
         var i: Bool = true
         var s: Int = 0
@@ -362,38 +411,37 @@ public class Reachability {
             
             i=false;
             
-            for node in doc.searchWithXPathQuery("//span[@id='MTG_COMP$\(s)']")! {
+            for node in (doc?.xpath("//span[@id='MTG_COMP$\(s)']"))! {
                
                 if node.text != "" {
                     
                    
                     i=true;
                     classType = node.text!
-                    let firstChar = classType.substringToIndex(classType.startIndex.advancedBy(1))
+                    let firstChar = classType.substring(to: classType.characters.index(classType.startIndex, offsetBy: 1))
                     
                    
                     if classType == "Lecture" {
                         
                         classType =  "Lec"
                         
-                        for node in doc.searchWithXPathQuery("//div[@id='win0divDERIVED_REGFRM1_DESCR20$\(lec)']")! {
+                   
+                        for node in (doc?.xpath("//div[@id='win0divDERIVED_REGFRM1_DESCR20$\(lec)']"))! {
                         
                             
                             if node.text != "" {
+                                
+                                let name = node.xpath(".//*")[0].xpath(".//*")[1].content!
                             
-                                
-                                
-                                let name =  node.children![0].children![1].children![0].children![0].content!
-
                                 var lecture = Lecture()
                                 
-                                lecture.name = name.substringToIndex(name.startIndex.advancedBy(8))
+                                lecture.name = name.substring(to: name.characters.index(name.startIndex, offsetBy: 8))
                                 
                                 listOfProgram.append(lecture)
                             }
                             
                         }
-                        lec++
+                        lec+=1;
                         
                     }else if firstChar ==  "P"  {
                         classType =  "PS"
@@ -408,32 +456,37 @@ public class Reachability {
             }
             
             
-            for node in doc.searchWithXPathQuery("//span[@id='MTG_SCHED$\(s)']")! {
-                
+            for node in (doc?.xpath("//span[@id='MTG_SCHED$\(s)']"))! {
+   
+
                 if node.text != "" {
                     
                     i=true;
                     
                     let dateInfo = node.text!
+              
                     var start = 0.0
                     var end = 0.0
                     let doubleDot : Character = ":"
                     let bosluk : Character = " "
                     var days = ""
                     
-                    if dateInfo != "TBA" {
+                    if dateInfo.characters.count > 4 {
                    
-                    days = dateInfo.substringToIndex((dateInfo.characters.indexOf(bosluk))!)
-                    let index1 = dateInfo.characters.indexOf(doubleDot)!
-                    let index2 = dateInfo.substringFromIndex(index1.advancedBy(1)).characters.indexOf(doubleDot)!
+                    days = dateInfo.substring(to: (dateInfo.characters.index(of: bosluk))!)
+                    let index1 = dateInfo.characters.index(of: doubleDot)!
+                        
+                    let index2 = dateInfo.substring(from: dateInfo.index(after:index1)).characters.index(of: doubleDot)!
                     
-                    start = Double(dateInfo.substringWithRange(Range<String.Index>(start: index1.advancedBy(-2), end: index1)) + "." + dateInfo.substringWithRange(Range<String.Index>(start: index1.advancedBy(1), end: index1.advancedBy(3) )))!
+                    start = Double( dateInfo.substring(with: dateInfo.index(index1, offsetBy: -2)..<index1) + "." +
+                        dateInfo.substring(with: dateInfo.index(index1,offsetBy: 1)..<dateInfo.index(index1, offsetBy:3)))!
                     
-                
+                    let secondPart = dateInfo.substring(from: dateInfo.index(index1,  offsetBy: 1))
                     
-                    let secondPart = dateInfo.substringFromIndex(index1.advancedBy(1));
                     
-                    end = Double(secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(-2), end: index2)) + "." + secondPart.substringWithRange(Range<String.Index>(start: index2.advancedBy(1), end: index2.advancedBy(3) )))!
+                    end = Double( secondPart.substring(with: secondPart.index(index2, offsetBy: -2)..<index2) + "." +
+                        secondPart.substring(with: secondPart.index(index2,offsetBy: 1)..<secondPart.index(index1, offsetBy:3)))!
+                    
                     }else {
                     days =  "Fr"
                     start = 18.30
@@ -472,7 +525,7 @@ public class Reachability {
                 
             }
             
-            for node in doc.searchWithXPathQuery("//span[@id='MTG_LOC$\(s)']")! {
+            for node in (doc?.xpath("//span[@id='MTG_LOC$\(s)']"))! {
                 
                  if node.text != "" {
                     
@@ -505,7 +558,7 @@ public class Reachability {
             }
 
             
-            s++
+            s += 1
         }
         
             confirmed = listOfProgram
@@ -520,22 +573,22 @@ public class Reachability {
         }
     }
     
-    class func dataParsing(data : NSData){
+    class func dataParsing(_ data : Data){
         
-        let html = NSString(data: data, encoding: NSUTF8StringEncoding)
+        let html = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
         
-        let doc = NDHpple(HTMLData: html! as String)
+        let doc = HTML(html: html! as String, encoding: .utf8)
         
         var i:Bool = true
         var s:Int = 0
         var derss=Courses()
-        Dersler.removeAll(keepCapacity: false)
-        terms.removeAll(keepCapacity: false)
+        Dersler.removeAll(keepingCapacity: false)
+        terms.removeAll(keepingCapacity: false)
         
         while(i) {
             
             
-            for node in doc.searchWithXPathQuery("//span[@id='CRSE_NAME$\(s)']")! {
+            for node in (doc?.xpath("//span[@id='CRSE_NAME$\(s)']"))! {
                 if node.text != "" {
                     
                     derss.name=node.text!
@@ -546,7 +599,7 @@ public class Reachability {
                 
             }
             
-            for node in doc.searchWithXPathQuery("//span[@id='CRSE_TERM$\(s)']")! {
+            for node in (doc?.xpath("//span[@id='CRSE_TERM$\(s)']"))! {
                 if node.text != "" {
                     derss.term=node.text!
                     
@@ -554,7 +607,7 @@ public class Reachability {
                 
             }
             
-            for node in doc.searchWithXPathQuery("//span[@id='CRSE_UNITS$\(s)']")! {
+            for node in (doc?.xpath("//span[@id='CRSE_UNITS$\(s)']"))! {
                 if node.text != "" {
                     derss.units = (node.text! as NSString).doubleValue
                     
@@ -564,7 +617,7 @@ public class Reachability {
                 
             }
             
-            for node in doc.searchWithXPathQuery("//span[@id='CRSE_GRADE$\(s)']")! {
+            for node in (doc?.xpath("//span[@id='CRSE_GRADE$\(s)']"))! {
                 if node.text !=  "" {
                     derss.grade=node.text!
                     derss.indexInDersler = s
@@ -580,11 +633,11 @@ public class Reachability {
                 i = false
             }
             
-            s++
+            s += 1
     }
     }
     
-    class func AssignPoint(index: Int , grade : String ){
+    class func AssignPoint(_ index: Int , grade : String ){
         
         switch  grade {
             
@@ -628,7 +681,7 @@ public class Reachability {
     }
     
     
-    class func CalculateGpa(courses: [Courses]){
+    class func CalculateGpa(_ courses: [Courses]){
         var totalUnits = 0.0
         var unitbypoint = 0.0
         
@@ -651,28 +704,25 @@ public class Reachability {
         
         do {
             
-            let dict: NSDictionary = try NSJSONSerialization.JSONObjectWithData(storage.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+
+            let dict:[String:Any] = try JSONSerialization.jsonObject(with: storage.data(using: String.Encoding.utf8)!, options: []) as! [String:Any]
+
             
-            
-            for var a = 0; a<dict.count; a++ {
-                var tempterm = [Courses]()
+            for coursedict in  dict.values {
                 
-                for var b = 0; b<dict.valueForKey("\(a)")!.count; b++ {
-                    
+                var tempterm = [Courses]()
+    
+                for case let course as [String:Any] in (coursedict as! [String:Any]).values {
                     var newcourse = Courses()
-                    newcourse.name = (dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("name"))! as! String
-                    
-                    newcourse.grade = (dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("grade"))! as! String
-                    newcourse.term = (dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("term"))! as! String
-                    newcourse.point = Double((dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("point"))! as! String)!
-                    newcourse.units = Double((dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("units"))! as! String)!
-                    newcourse.valid = Int((dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("valid"))! as! String)!
-                    newcourse.wunit = Double((dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("wunit"))! as! String)!
-                    newcourse.indexInDersler = Int((dict.valueForKey("\(a)")!.valueForKey("\(b+10)")?.valueForKey("indexInDersler"))! as! String)!
-                    tempterm.append(newcourse)
-                    
-                    
-                    
+                    newcourse.name = course["name"] as! String
+                    newcourse.grade = course["grade"] as! String
+                    newcourse.term =  course["term"] as! String
+                    newcourse.point =  Double(course["point"] as! String)!
+                    newcourse.units = Double(course["units"] as! String)!
+                    newcourse.valid = Int( course["valid"] as! String)!
+                    newcourse.wunit = Double(course["wunit"] as! String)!
+                    newcourse.indexInDersler = Int( course["indexInDersler"] as! String)!
+                    tempterm.append(newcourse);
                 }
                 terms.append(tempterm)
                 
@@ -705,7 +755,7 @@ public class Reachability {
         
     }
     
-    class func CalculateSpa(courses: [Courses]){
+    class func CalculateSpa(_ courses: [Courses]){
         var totalUnits = 0.0
         var unitbypoint = 0.0
         creditholder = 0.0
@@ -731,16 +781,16 @@ public class Reachability {
     
     class func CheckList(){
         
-        for var i=0;i<Dersler.count; i++ {
+        for i in 0 ..< Dersler.count {
             
-            for var j=0;j<Dersler.count; j++ {
+            for j in 0 ..< Dersler.count {
                 
                 let namecl = Dersler[i].name as NSString
                 let namel = Dersler[j].name as NSString
                 
                 
-                if namecl.substringToIndex(4) == namel.substringToIndex(4){
-                    switch namecl.substringToIndex(4) {
+                if namecl.substring(to: 4) == namel.substring(to: 4){
+                    switch namecl.substring(to: 4) {
                     case "ASIU","SOSC","ETHR","HUMS":
                         if Dersler[i].point > Dersler[j].point{
                             Dersler[j].units = 0.0
@@ -772,7 +822,7 @@ public class Reachability {
                     
                 }
                 let elc = Dersler[j].name as NSString
-                if elc.substringToIndex(3) == "ELC" {
+                if elc.substring(to: 3) == "ELC" {
                     Dersler[j].units=0.0
                     
                 }
@@ -789,12 +839,12 @@ public class Reachability {
         
         var Json = "{"
         
-        for var i=0; i < terms.count ; i++ {
+        for i in 0 ..< terms.count {
             
             Json = Json + "\"" + String(i) + "\":" + "{"
             
             
-            for  var j=0; j<terms[i].count; j++ {
+            for  j in 0 ..< terms[i].count {
                 
                 Json = Json + "\"" + String(j+10) + "\": {"
                 
@@ -816,13 +866,13 @@ public class Reachability {
                 
             }
             
-            Json.removeAtIndex(Json.endIndex.predecessor())
+            Json.remove(at: Json.characters.index(before: Json.endIndex))
             
             Json = Json + "},"
             
         }
         
-        Json.removeAtIndex(Json.endIndex.predecessor())
+        Json.remove(at: Json.characters.index(before: Json.endIndex))
         
         Json = Json + "}"
     
@@ -830,11 +880,11 @@ public class Reachability {
         
     }
     
-    class func ToJson(Program: [Lecture]) -> String {
+    class func ToJson(_ Program: [Lecture]) -> String {
         
         var Json = "{"
             
-            for  var i=0; i<Program.count; i++ {
+            for  i in 0 ..< Program.count {
                 
                 Json = Json + "\"" + String(i) + "\": {"
                 
@@ -875,7 +925,7 @@ public class Reachability {
             }
     
         
-        Json.removeAtIndex(Json.endIndex.predecessor())
+        Json.remove(at: Json.characters.index(before: Json.endIndex))
         
         Json = Json + "}"
         

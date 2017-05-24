@@ -33,22 +33,20 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func updateStorage(){
         storage = Reachability.ToJson()
-        NSUserDefaults.standardUserDefaults().setObject(storage, forKey: "storage")
+        UserDefaults.standard.set(storage, forKey: "storage")
         storage = ""
-        NSUserDefaults.standardUserDefaults().setObject(name, forKey: "name")
-        NSUserDefaults.standardUserDefaults().setObject(pass, forKey: "pass")
+        UserDefaults.standard.set(name, forKey: "name")
+        UserDefaults.standard.set(pass, forKey: "pass")
         
     }
    
-    @IBAction func logout(sender: AnyObject) {
-        self.performSegueWithIdentifier("logout", sender: self)
+    @IBAction func logout(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "logout", sender: self)
         storage = ""
         terms.removeAll()
         
         updated = false
-        PFUser.logOut()
-        isUploaded = false
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("storage")
+        UserDefaults.standard.removeObject(forKey: "storage")
         
         
     }
@@ -61,31 +59,31 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.tabBarController?.delegate = self
 
-        if NSUserDefaults.standardUserDefaults().objectForKey("storage") != nil {
+        if UserDefaults.standard.object(forKey: "storage") != nil {
             
-            storage = NSUserDefaults.standardUserDefaults().objectForKey("storage") as! String
+            storage = UserDefaults.standard.object(forKey: "storage") as! String
             Reachability.ReadJson()
             Reachability.CalculateGpaFromSpas()
-            name = NSUserDefaults.standardUserDefaults().objectForKey("name") as! NSString
-            pass = NSUserDefaults.standardUserDefaults().objectForKey("pass") as! NSString
+            name = UserDefaults.standard.object(forKey: "name") as! NSString
+            pass = UserDefaults.standard.object(forKey: "pass") as! NSString
             
             
         }
-        navigationController?.navigationBar.hidden = false
+        navigationController?.navigationBar.isHidden = false
         navigationController!.navigationBar.barTintColor = navigationControllerColor
-        let titleLabel : UILabel = UILabel(frame: CGRectMake(0,0,50,32))
+        let titleLabel : UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 50,height: 32))
         titleLabel.text = name as String
         titleLabel.font =  UIFont(name:"HalveticaNeue-UltraLight", size: 25.0)
-        titleLabel.textColor = UIColor.whiteColor()
-        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        titleLabel.textColor = UIColor.white
+        self.navigationController!.navigationBar.tintColor = UIColor.white
       
         self.navigationItem.titleView = titleLabel
-        self.navigationController!.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+        self.navigationController!.navigationBar.barStyle = UIBarStyle.blackTranslucent
 
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.addTarget(self, action: #selector(gpaViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl)
         
         
@@ -94,72 +92,41 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView(frame: CGRect.zero)
        
-        if isUploaded == false {
-            
-            let USER = PFUser()
-            USER.username = name as String
-            USER.password = "respectforsecurity"
-            USER.email = (name as String) + "@ku.edu.tr"
-            USER.setObject(gpa, forKey:"gpa")
-            USER.setObject(credit, forKey: "credit")
-            USER.setObject(Reachability.ToJson(), forKey: "records")
-            
-            USER.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
-                
-                if ((error) != nil) {
-                   
-                    
-                }else {
-                    
-                    isUploaded = true
-                        
-                    
-                }
-            })
-
-          
-              
-            
-            
-        }
-    
-        
-    
       
         // Do any additional setup after loading the view.
     }
     
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         
-        if viewController.title == "enrollments" && !UIDevice.currentDevice().orientation.isLandscape.boolValue  {
+        if viewController.title == "enrollments" && !UIDevice.current.orientation.isLandscape  {
         
-        let value = UIInterfaceOrientation.LandscapeRight.rawValue
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
         
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        UIDevice.current.setValue(value, forKey: "orientation")
       
         }
        
     }
     
-    func refresh(sender:AnyObject)
+    func refresh(_ sender:AnyObject)
         
     {
         if Reachability.isConnectedToNetwork(){
             
             let request = Reachability.PrepareLoginRequest()
         
-            let session = NSURLSession.sharedSession()
+            let session = URLSession.shared
             
-            let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+            let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
              
                     let newrequest = Reachability.PrepareCourseHistoryRequest()
                 
-                    let newtask = session.dataTaskWithRequest(newrequest){ (data, repsonse, error) -> Void in
+                    let newtask = session.dataTask(with: newrequest, completionHandler: { (data, repsonse, error) -> Void in
                     
-                        dispatch_async(dispatch_get_main_queue(), {
+                        DispatchQueue.main.async(execute: {
                   
                     
                             if Reachability.dataCheck(data!){
@@ -179,11 +146,11 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                         
                     
                         })
-                    }
+                    })
                     newtask.resume()
                 
                     })
-                }
+                })
             
                 task.resume()
         }else{
@@ -192,11 +159,11 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         Reachability.CalculateGpaFromSpas();
         tableView.reloadData()
         navigationController?.hidesBarsOnSwipe = false
-        self.navigationController?.interactivePopGestureRecognizer!.enabled = true;
+        self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true;
         Reachability.sortTerms()
 
         
@@ -210,15 +177,15 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
   
   
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return terms.count+1
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         
-        cell=tableView.dequeueReusableCellWithIdentifier("cell",forIndexPath:indexPath) as UITableViewCell
+        cell=tableView.dequeueReusableCell(withIdentifier: "cell",for:indexPath) as UITableViewCell
 
         
         updateStorage()
@@ -226,12 +193,12 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         if indexPath.row==0{
             cell.textLabel?.text = String(format: "GPA: %.2f", gpa)
             cell.backgroundColor = firstCellColor
-            cell.tintColor = UIColor.whiteColor()
+            cell.tintColor = UIColor.white
             cell.textLabel?.font = UIFont(name:"Roboto-Light", size:19.0)
             cell.detailTextLabel?.text = String(format: "Credit: %.0f", credit)
             cell.detailTextLabel?.textColor = detailLabelColor
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.userInteractionEnabled = false
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            cell.isUserInteractionEnabled = false
         
             
         }else{
@@ -254,37 +221,23 @@ class gpaViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func AlertConnection(){
         
         let alertController = UIAlertController(title: "Connection Error", message:
-            "Please sign in again!", preferredStyle: UIAlertControllerStyle.Alert)
+            "Please sign in again!", preferredStyle: UIAlertControllerStyle.alert)
     
-        alertController.addAction(UIAlertAction(title: "Okey", style: UIAlertActionStyle.Default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "Okey", style: UIAlertActionStyle.default,handler: nil))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
     }
     
     func AfterCalculation(){
-        let USER = PFUser.currentUser()
-        
-        let currentUser = PFUser.currentUser()?.username
-        
-        if currentUser != nil {
-            USER!.setObject(gpa, forKey:"gpa")
-            USER!.setObject(credit, forKey: "credit")
-            USER!.setObject(Reachability.ToJson(), forKey: "records")
-            USER!.saveInBackground()
-        }
-  
-        
         self.tableView.reloadData()
         self.refreshControl.endRefreshing()
-   
-        
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0 {
             indexofTerm = indexPath.row-1
-            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            self.tableView.deselectRow(at: indexPath, animated: true)
         }
              
 

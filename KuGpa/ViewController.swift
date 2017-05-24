@@ -18,14 +18,14 @@ class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDe
     @IBOutlet var click: UIButton!
     @IBOutlet var activityInd: UIActivityIndicatorView!
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let _ = touches.first {
          self.view.endEditing(true)   // ...
         }
-        super.touchesBegan(touches, withEvent:event)
+        super.touchesBegan(touches, with:event)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         
         return true
@@ -37,33 +37,35 @@ class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDe
 
     
     
-    @IBAction func clc(sender: AnyObject) {
+    @IBAction func clc(_ sender: AnyObject) {
         
-        name = usd.text!
-        pass = pwd.text!
+        name = usd.text! as NSString
+        pass = pwd.text! as NSString
         
         
         if Reachability.isConnectedToNetwork(){
-            self.click.hidden = true
+          
+            self.click.isHidden = true
             self.view.endEditing(true)
-            activityInd.hidden = false
+            activityInd.isHidden = false
             activityInd.startAnimating()
+         
+            let request =  Reachability.PrepareLoginRequest()
             
-            let request = Reachability.PrepareLoginRequest()
             
-            let session = NSURLSession.sharedSession()
-            
-            let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
                 
-                dispatch_async(dispatch_get_main_queue(), {
+
+                
+                DispatchQueue.main.async(execute: {
                     
                     let newrequest = Reachability.PrepareCourseHistoryRequest()
                     
-                    let newtask = session.dataTaskWithRequest(newrequest){ (data, repsonse, error) -> Void in
+                    let newtask = URLSession.shared.dataTask(with: newrequest, completionHandler: { (data, repsonse, error) -> Void in
                         
-                        dispatch_async(dispatch_get_main_queue(), {
-                            
-                            
+                        DispatchQueue.main.async(execute: {
+                     
+                          
                             if Reachability.dataCheck(data!){
                                 
                                 Reachability.dataParsing(data!)
@@ -81,13 +83,13 @@ class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDe
                             
                             
                         })
-                    }
+                    })
                     newtask.resume()
                     
                    
                     
                 })
-            }
+            })
             
             task.resume()
         }else{
@@ -98,86 +100,38 @@ class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDe
     
     func AlertConnection(){
         let alertController = UIAlertController(title: "Connection Error", message:
-            "Please sign in again!", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Okey", style: UIAlertActionStyle.Default,handler: nil))
+            "Please sign in again!", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Okey", style: UIAlertActionStyle.default,handler: nil))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
-        self.click.hidden = false
-        self.activityInd.hidden = true
+        self.click.isHidden = false
+        self.activityInd.isHidden = true
         
         
     }
     
     func AfterCalculation(){
         
-        let newUser = PFUser()
         
-        newUser.username = name as String
-        newUser.password = "respectforsecurity"
-        newUser.email = (name as String) + "@ku.edu.tr"
-        newUser.setObject(gpa, forKey:"gpa")
-        newUser.setObject(credit, forKey: "credit")
-        newUser.setObject(Reachability.ToJson(), forKey: "records")
-      
         
-        newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
-        
-            if ((error) != nil) {
-                
-                if error?.code == 202 {
-                   
-                    PFUser.logInWithUsernameInBackground(name as String, password: "respectforsecurity", block: { (USER, ERROR) -> Void in
-                        
-                       
-                        if ((USER) != nil) {
-                         
-                                USER!.setObject(gpa, forKey:"gpa")
-                                USER!.setObject(credit, forKey: "credit")
-                                USER!.setObject(Reachability.ToJson(), forKey: "records")
-                                USER!.saveInBackground()
-                           
-                            isUploaded = true ;
-                            self.activityInd.stopAnimating()
-                            self.performSegueWithIdentifier("Term", sender: self)
-                            
-                        } else {
-                            
-                            let alertController = UIAlertController(title: "Connection Error", message:
-                                "Please sign in again!", preferredStyle: UIAlertControllerStyle.Alert)
-                            alertController.addAction(UIAlertAction(title: "Okey", style: UIAlertActionStyle.Default,handler: nil))
-                            
-                            self.presentViewController(alertController, animated: true, completion: nil)
-                            
-                            self.click.hidden = false
-                            self.activityInd.hidden = true
-                        }
-                    })
-                }
-               
-                
-            } else {
-               
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    isUploaded = true ;
-                    self.activityInd.stopAnimating()
-                    self.performSegueWithIdentifier("Term", sender: self)
-                  
-                })
-            }
-        })
+        isUploaded = true ;
+        self.activityInd.stopAnimating()
+        self.performSegue(withIdentifier: "Term", sender: self)
+  
+
         
     
     }
 
     
     override func viewDidLoad() {
-        self.tabBarController?.tabBar.hidden = true
-        self.view.hidden = false
+        self.tabBarController?.tabBar.isHidden = true
+        self.view.isHidden = false
         super.viewDidLoad()
         //if NSUserDefaults.standardUserDefaults().objectForKey("storage") == nil {
-        self.activityInd.hidden = true
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+        self.activityInd.isHidden = true
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.blackTranslucent
         self.view.backgroundColor = mainStoryBoardColor
         // Do any additional setup after loading the view, typically from a nib.
         self.usd.delegate = self
@@ -187,25 +141,25 @@ class ViewController: UIViewController,UITextFieldDelegate, UITabBarControllerDe
 
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
-        if NSUserDefaults.standardUserDefaults().objectForKey("storage") != nil {
-           self.view.hidden = true
-            self.performSegueWithIdentifier("Term", sender: self)
+        if UserDefaults.standard.object(forKey: "storage") != nil {
+           self.view.isHidden = true
+            self.performSegue(withIdentifier: "Term", sender: self)
             
             
             
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-             navigationController?.navigationBar.hidden = true
-             self.navigationController?.interactivePopGestureRecognizer!.enabled = false;
+    override func viewWillAppear(_ animated: Bool) {
+             navigationController?.navigationBar.isHidden = true
+             self.navigationController?.interactivePopGestureRecognizer!.isEnabled = false;
   
-             Dersler.removeAll(keepCapacity: false)
-             terms.removeAll(keepCapacity: false)
-             spa.removeAll(keepCapacity: false)
-             creditperterm.removeAll(keepCapacity: false)
+             Dersler.removeAll(keepingCapacity: false)
+             terms.removeAll(keepingCapacity: false)
+             spa.removeAll(keepingCapacity: false)
+             creditperterm.removeAll(keepingCapacity: false)
 
         
     }

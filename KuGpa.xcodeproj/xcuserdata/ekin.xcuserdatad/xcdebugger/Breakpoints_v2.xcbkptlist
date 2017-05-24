@@ -16,7 +16,7 @@
             startingLineNumber = "283"
             endingLineNumber = "283"
             landmarkName = "createMyTablePortrait()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,7 +32,7 @@
             startingLineNumber = "278"
             endingLineNumber = "278"
             landmarkName = "createMyTablePortrait()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,7 +48,7 @@
             startingLineNumber = "402"
             endingLineNumber = "402"
             landmarkName = "getPlannedProgram()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/reachability.swift"
-            timestampString = "474131695.228115"
+            timestampString = "517350992.71197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "dataParsingForProgram(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/reachability.swift"
-            timestampString = "474127388.005191"
+            timestampString = "517350992.71197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "dataParsingForProgram(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,7 +96,7 @@
             startingLineNumber = "716"
             endingLineNumber = "716"
             landmarkName = "dateToIndex(_:end:days:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -112,7 +112,7 @@
             startingLineNumber = "710"
             endingLineNumber = "710"
             landmarkName = "putCoursesToTable(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -128,7 +128,7 @@
             startingLineNumber = "33"
             endingLineNumber = "33"
             landmarkName = "textFieldShouldReturn(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -206,7 +206,7 @@
             startingLineNumber = "745"
             endingLineNumber = "745"
             landmarkName = "dateToIndex(_:end:days:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -216,13 +216,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/reachability.swift"
-            timestampString = "474131695.228115"
+            timestampString = "517350992.71197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "dataParsingForProgram(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -238,7 +238,7 @@
             startingLineNumber = "273"
             endingLineNumber = "273"
             landmarkName = "createMyTablePortrait()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -310,14 +310,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KuGpa/ViewController.swift"
-            timestampString = "475515677.886203"
+            filePath = "KuGpa/reachability.swift"
+            timestampString = "517350992.71197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "AfterCalculation()"
-            landmarkType = "5">
+            startingLineNumber = "397"
+            endingLineNumber = "397"
+            landmarkName = "dataParsingForConfirmed(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -327,13 +327,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/reachability.swift"
-            timestampString = "475519424.486665"
+            timestampString = "517350992.71197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
-            landmarkName = "dataParsingForConfirmed(_:)"
-            landmarkType = "5">
+            startingLineNumber = "395"
+            endingLineNumber = "395"
+            landmarkName = "dataParsingForProgram(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -343,13 +343,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/reachability.swift"
-            timestampString = "475519424.486665"
+            timestampString = "517350992.71197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
-            landmarkName = "dataParsingForConfirmed(_:)"
-            landmarkType = "5">
+            startingLineNumber = "385"
+            endingLineNumber = "385"
+            landmarkName = "dataParsingForProgram(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -359,29 +359,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KuGpa/reachability.swift"
-            timestampString = "475519424.486665"
+            timestampString = "517354574.914391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
-            landmarkName = "dataParsingForConfirmed(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KuGpa/gpaViewController.swift"
-            timestampString = "475519814.747612"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            startingLineNumber = "716"
+            endingLineNumber = "716"
+            landmarkName = "ReadJson()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,15 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		69AF9DAD1BFE4A7500D840A2 /* reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E528B41BCADF8900F163F1 /* reachability.swift */; };
+		8D8B44E89342E449FFBCEAAA /* Pods_KuGpa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17627EA0FDBD56D68EDFCB5 /* Pods_KuGpa.framework */; };
 		C60CF2E01BCAE190000F53D6 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60CF2DF1BCAE190000F53D6 /* ExternalAccessory.framework */; };
 		C60CF2E71BCAF98D000F53D6 /* ku_logo (1).png in Resources */ = {isa = PBXBuildFile; fileRef = C60CF2E61BCAF98D000F53D6 /* ku_logo (1).png */; };
-		C69874431BEF933000A72394 /* NDHppleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C698743E1BEF8C2D00A72394 /* NDHppleElement.swift */; };
-		C69874441BEF933100A72394 /* NDHpple.swift in Sources */ = {isa = PBXBuildFile; fileRef = C698743D1BEF8C2D00A72394 /* NDHpple.swift */; };
-		C69874451BEF933100A72394 /* XPathQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C698743F1BEF8C2D00A72394 /* XPathQuery.swift */; };
 		C698744A1BEF95E400A72394 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C69874481BEF95E400A72394 /* libxml2.2.tbd */; };
 		C698744B1BEF95E400A72394 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C69874491BEF95E400A72394 /* libxml2.tbd */; };
 		C6A5C9FD1BD58904005DDB1C /* App Icon [Rounded] in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C9FC1BD58904005DDB1C /* App Icon [Rounded] */; };
-		C6DA82351BF2B71A00D74ABE /* NDHpple in Resources */ = {isa = PBXBuildFile; fileRef = C6DA82341BF2B71A00D74ABE /* NDHpple */; };
 		C6E528831BCADEEB00F163F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E528821BCADEEB00F163F1 /* AppDelegate.swift */; };
 		C6E528881BCADEEB00F163F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E528861BCADEEB00F163F1 /* Main.storyboard */; };
 		C6E5288A1BCADEEB00F163F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E528891BCADEEB00F163F1 /* Assets.xcassets */; };
@@ -64,17 +61,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31E97531EEBEBFC7E503E585 /* Pods-KuGpa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuGpa.release.xcconfig"; path = "Pods/Target Support Files/Pods-KuGpa/Pods-KuGpa.release.xcconfig"; sourceTree = "<group>"; };
+		75E25661FC70B76B8CB5DEA0 /* Pods-KuGpa.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuGpa.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-KuGpa/Pods-KuGpa.distribution.xcconfig"; sourceTree = "<group>"; };
 		C60CF2DF1BCAE190000F53D6 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		C60CF2E11BCAE190000F53D6 /* KuGpa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = KuGpa.entitlements; sourceTree = "<group>"; };
 		C60CF2E61BCAF98D000F53D6 /* ku_logo (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ku_logo (1).png"; sourceTree = "<group>"; };
-		C698743D1BEF8C2D00A72394 /* NDHpple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NDHpple.swift; path = NDHpple/NDHpple.swift; sourceTree = "<group>"; };
-		C698743E1BEF8C2D00A72394 /* NDHppleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NDHppleElement.swift; path = NDHpple/NDHppleElement.swift; sourceTree = "<group>"; };
-		C698743F1BEF8C2D00A72394 /* XPathQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XPathQuery.swift; path = NDHpple/XPathQuery.swift; sourceTree = "<group>"; };
-		C69874461BEF935E00A72394 /* KuGpa-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KuGpa-Bridging-Header.h"; path = "NDHpple/KuGpa-Bridging-Header.h"; sourceTree = "<group>"; };
 		C69874481BEF95E400A72394 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		C69874491BEF95E400A72394 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		C6A5C9FC1BD58904005DDB1C /* App Icon [Rounded] */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "App Icon [Rounded]"; sourceTree = "<group>"; };
-		C6DA82341BF2B71A00D74ABE /* NDHpple */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NDHpple; sourceTree = "<group>"; };
 		C6E5287F1BCADEEB00F163F1 /* KuGpa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuGpa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E528821BCADEEB00F163F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E528871BCADEEB00F163F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +89,7 @@
 		C6E528B71BCADF8900F163F1 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		C6E528B81BCADF8900F163F1 /* termViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = termViewController.swift; sourceTree = "<group>"; };
 		C6E528B91BCADF8900F163F1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D46438C4C6EF80186AB81CF6 /* Pods-KuGpa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuGpa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KuGpa/Pods-KuGpa.debug.xcconfig"; sourceTree = "<group>"; };
 		E3237A401C419C48003C0FB7 /* pelin */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pelin; sourceTree = "<group>"; };
 		E39958EF1C31EC5900FC423B /* programView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = programView.swift; sourceTree = "<group>"; };
 		E3CE40FB1C578FC900DA3726 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -109,6 +104,7 @@
 		E3CE410D1C57902200DA3726 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E3CE410F1C57902900DA3726 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E3CE41111C57903000DA3726 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F17627EA0FDBD56D68EDFCB5 /* Pods_KuGpa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KuGpa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +127,7 @@
 				C60CF2E01BCAE190000F53D6 /* ExternalAccessory.framework in Frameworks */,
 				E3CE40FD1C578FC900DA3726 /* Bolts.framework in Frameworks */,
 				E3CE40FE1C578FC900DA3726 /* Parse.framework in Frameworks */,
+				8D8B44E89342E449FFBCEAAA /* Pods_KuGpa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,8 +166,19 @@
 				C69874481BEF95E400A72394 /* libxml2.2.tbd */,
 				C69874491BEF95E400A72394 /* libxml2.tbd */,
 				C60CF2DF1BCAE190000F53D6 /* ExternalAccessory.framework */,
+				F17627EA0FDBD56D68EDFCB5 /* Pods_KuGpa.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B970FF3DC14C213C048ACB81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D46438C4C6EF80186AB81CF6 /* Pods-KuGpa.debug.xcconfig */,
+				31E97531EEBEBFC7E503E585 /* Pods-KuGpa.release.xcconfig */,
+				75E25661FC70B76B8CB5DEA0 /* Pods-KuGpa.distribution.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C6E528761BCADEEB00F163F1 = {
@@ -181,6 +189,7 @@
 				C6E528A11BCADEEB00F163F1 /* KuGpaUITests */,
 				C6E528801BCADEEB00F163F1 /* Products */,
 				54316D43F722358F45E7E873 /* Frameworks */,
+				B970FF3DC14C213C048ACB81 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,11 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				E3237A401C419C48003C0FB7 /* pelin */,
-				C6DA82341BF2B71A00D74ABE /* NDHpple */,
-				C69874461BEF935E00A72394 /* KuGpa-Bridging-Header.h */,
-				C698743E1BEF8C2D00A72394 /* NDHppleElement.swift */,
-				C698743D1BEF8C2D00A72394 /* NDHpple.swift */,
-				C698743F1BEF8C2D00A72394 /* XPathQuery.swift */,
 				C6E528B41BCADF8900F163F1 /* reachability.swift */,
 				C6A5C9FC1BD58904005DDB1C /* App Icon [Rounded] */,
 				C60CF2E61BCAF98D000F53D6 /* ku_logo (1).png */,
@@ -249,9 +253,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6E528A71BCADEEB00F163F1 /* Build configuration list for PBXNativeTarget "KuGpa" */;
 			buildPhases = (
+				D625AB517D2D26C37EFED99E /* [CP] Check Pods Manifest.lock */,
 				C6E5287B1BCADEEB00F163F1 /* Sources */,
 				C6E5287C1BCADEEB00F163F1 /* Frameworks */,
 				C6E5287D1BCADEEB00F163F1 /* Resources */,
+				9FD3A30FF16A04732F482211 /* [CP] Embed Pods Frameworks */,
+				5BA9F7A2479D3EA0C758B7E8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -304,12 +311,13 @@
 		C6E528771BCADEEB00F163F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = MellonApp;
 				TargetAttributes = {
 					C6E5287E1BCADEEB00F163F1 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 573682DC5D;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.WAC = {
 								enabled = 1;
@@ -318,10 +326,12 @@
 					};
 					C6E528921BCADEEB00F163F1 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0830;
 						TestTargetID = C6E5287E1BCADEEB00F163F1;
 					};
 					C6E5289D1BCADEEB00F163F1 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0830;
 						TestTargetID = C6E5287E1BCADEEB00F163F1;
 					};
 				};
@@ -355,7 +365,6 @@
 				E3237A411C419C48003C0FB7 /* pelin in Resources */,
 				C6E5288D1BCADEEB00F163F1 /* LaunchScreen.storyboard in Resources */,
 				C6E528C01BCADF8900F163F1 /* Roboto-Medium.ttf in Resources */,
-				C6DA82351BF2B71A00D74ABE /* NDHpple in Resources */,
 				C60CF2E71BCAF98D000F53D6 /* ku_logo (1).png in Resources */,
 				C6E528BF1BCADF8900F163F1 /* Roboto-Light.ttf in Resources */,
 				C6E5288A1BCADEEB00F163F1 /* Assets.xcassets in Resources */,
@@ -380,15 +389,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5BA9F7A2479D3EA0C758B7E8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KuGpa/Pods-KuGpa-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FD3A30FF16A04732F482211 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KuGpa/Pods-KuGpa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D625AB517D2D26C37EFED99E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C6E5287B1BCADEEB00F163F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				69AF9DAD1BFE4A7500D840A2 /* reachability.swift in Sources */,
-				C69874431BEF933000A72394 /* NDHppleElement.swift in Sources */,
-				C69874441BEF933100A72394 /* NDHpple.swift in Sources */,
-				C69874451BEF933100A72394 /* XPathQuery.swift in Sources */,
 				C6E528C21BCADF8900F163F1 /* termViewController.swift in Sources */,
 				C6E528BB1BCADF8900F163F1 /* customCell.swift in Sources */,
 				C6E528831BCADEEB00F163F1 /* AppDelegate.swift in Sources */,
@@ -463,8 +517,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kagan Cenan (573682DC5D)";
@@ -494,6 +550,7 @@
 		};
 		C6D8B86C1BCB9F22008D4D86 /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75E25661FC70B76B8CB5DEA0 /* Pods-KuGpa.distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -510,7 +567,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mellonapp.KuGpa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "KuGpa/NDHpple/KuGpa-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Distribution;
@@ -523,6 +581,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MellonCorp.KuGpaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KuGpa.app/KuGpa";
 			};
 			name = Distribution;
@@ -534,6 +593,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MellonCorp.KuGpaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = KuGpa;
 				USES_XCTRUNNER = YES;
 			};
@@ -553,8 +613,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kagan Cenan (573682DC5D)";
@@ -603,8 +665,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kagan Cenan (573682DC5D)";
@@ -627,6 +691,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PROVISIONING_PROFILE = "bc38ed79-ef98-4ecf-93f0-baa9dffd4a49";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -634,6 +699,7 @@
 		};
 		C6E528A81BCADEEB00F163F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D46438C4C6EF80186AB81CF6 /* Pods-KuGpa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -650,13 +716,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mellonapp.KuGpa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "KuGpa/NDHpple/KuGpa-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		C6E528A91BCADEEB00F163F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31E97531EEBEBFC7E503E585 /* Pods-KuGpa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -673,7 +741,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mellonapp.KuGpa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "KuGpa/NDHpple/KuGpa-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -686,6 +755,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MellonCorp.KuGpaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KuGpa.app/KuGpa";
 			};
 			name = Debug;
@@ -698,6 +768,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MellonCorp.KuGpaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KuGpa.app/KuGpa";
 			};
 			name = Release;
@@ -709,6 +780,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MellonCorp.KuGpaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = KuGpa;
 				USES_XCTRUNNER = YES;
 			};
@@ -721,6 +793,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MellonCorp.KuGpaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = KuGpa;
 				USES_XCTRUNNER = YES;
 			};

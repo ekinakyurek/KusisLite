@@ -9,6 +9,8 @@ import UIKit
 //import Foundation
 import SystemConfiguration
 import Kanna
+
+
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -139,12 +141,13 @@ open class Reachability {
 
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded;charset=utf-8", forHTTPHeaderField: "Content-Type")
-        var postData = "userid=\(name)".data(using: String.Encoding.utf8)!
-        postData.append("&pwd=\(pass)".data(using: String.Encoding.utf8)!)
-       //request.httpBody = postString.data(using: String.Encoding.utf8)
-        request.httpBody = postData;
+        var user_data = "userid=\(name)&pwd=\(pass)";
+        user_data = user_data.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!;
+        
+        request.httpBody = user_data.data(using: String.Encoding.utf8)
         return request
     }
+
     func descending (_ value1: Int, value2: Int) -> Bool {
         return value1 > value2;
     }
@@ -256,13 +259,12 @@ open class Reachability {
     class func dataCheck(_ data : Data)-> Bool {
         
          let html = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-         let doc = HTML(html: html! as String, encoding: .utf8)
-           
-            if doc?.xpath("/html/head/title")[0].text == "My Course History"{
+         let doc = Kanna.HTML(html: html! as String, encoding: .utf8)!
+         if doc.xpath("/html/head/title")[0].text == "My Course History"{
             return true
             }else{
             return false
-            }
+         }
        
         
     }
